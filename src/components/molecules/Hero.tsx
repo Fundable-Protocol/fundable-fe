@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 
 import laptopPhoneImage from "../../public/imgs/laptop_phone.png";
-import walletsImg from "../../public/svgs/wallets.svg";
+import walletsImg from "../../public/imgs/wallets.png";
 
 const Hero = () => {
   const heroText = {
