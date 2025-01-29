@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Features() {
   return (
@@ -36,18 +37,27 @@ export default function Features() {
                 </p>
                 {/* READ MORE AND IMAGE SECTION */}
                 <div className="flex justify-between items-start gap-16 mt-4">
-                  <a
+                  <Link
                     href="#"
                     className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
                   >
-                    Read more <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                    Read more
+                    <Image
+                      src="/rightArrowFu.svg"
+                      alt="right arrow"
+                      width={16}
+                      height={16}
+                      className="ml-1"
+                    />
+                  </Link>
 
-                  <div className="relative h-48 w-full ">
-                    <img
+                  <div className="relative h-44 w-full ">
+                    <Image
                       src="/retro.svg"
                       alt="Geometric cube illustration"
                       className="absolute bottom-0 right-0 object-cover rounded-lg"
+                      width={325}
+                      height={184}
                     />
                   </div>
                 </div>
@@ -78,18 +88,27 @@ export default function Features() {
                 </p>
                 {/* READ MORE AND IMAGE SECTION */}
                 <div className="flex justify-between items-start gap-16 mt-4">
-                  <a
+                  <Link
                     href="#"
                     className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
                   >
-                    Read more <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                    Read more
+                    <Image
+                      src="/rightArrowFu.svg"
+                      alt="right arrow"
+                      width={16}
+                      height={16}
+                      className="ml-1"
+                    />
+                  </Link>
 
-                  <div className="relative h-48 w-full ">
-                    <img
+                  <div className="relative h-44 w-full ">
+                    <Image
                       src="/quadratic.svg"
                       alt="Geometric cube illustration"
                       className="absolute bottom-0 right-0 object-cover rounded-lg"
+                      width={325}
+                      height={184}
                     />
                   </div>
                 </div>
@@ -121,14 +140,19 @@ export default function Features() {
                     for recurring payments, salaries, subscriptions, and more,
                     reducing administrative burdens and minimizing errors.
                   </p>
-                  <a
+                  <Link
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-white/70 transition-colors
-                     
-                    "
+                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
                   >
-                    Read more <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                    Read more
+                    <Image
+                      src="/rightArrowFu.svg"
+                      alt="right arrow"
+                      width={16}
+                      height={16}
+                      className="ml-1"
+                    />
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -144,12 +168,19 @@ export default function Features() {
                     Effortlessly distribute funds to recipients, with complete
                     transparency, robust security, and real-time tracking.
                   </p>
-                  <a
+                  <Link
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors"
+                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
                   >
-                    Read more <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                    Read more
+                    <Image
+                      src="/rightArrowFu.svg"
+                      alt="right arrow"
+                      width={16}
+                      height={16}
+                      className="ml-1"
+                    />
+                  </Link>
                 </div>
               </CardContent>
 
