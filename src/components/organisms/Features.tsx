@@ -7,7 +7,7 @@ export default function Features() {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-center lg:text-left max-w-[250px] mx-auto lg:max-w-0 lg:max-w-none">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-center lg:text-left max-w-[250px] mx-auto md:max-w-[350px] lg:max-w-0 lg:max-w-none">
             Decentralized Funding Made Easy
           </h1>
           <p className="text-sm text-[#CCCCCC] text-center  lg:text-right font-light">
@@ -106,19 +106,26 @@ export default function Features() {
 
         <div className="w-full flex gap-6 flex-col lg:flex-row mt-6">
           {/* Streaming */}
-          <div className="w-[60%]">
-            <Card className=" bg-[#7C3AED]">
+          <div className="lg:w-[60%] w-full">
+            <Card className=" bg-[#8256FF] border-none text-[#eaeaea]">
               <CardContent className="p-6">
                 <div className="space-y-4 max-w-2xl">
-                  <h2 className="text-xl font-semibold">Streaming</h2>
-                  <p className="text-white/90 text-sm leading-relaxed">
+                  <h2 className="text-base font-semibold">Streaming</h2>
+                  <p
+                    className="
+                   text-sm leading-relaxed 
+                  
+                  "
+                  >
                     Streamline your payment workflows with automated solutions
                     for recurring payments, salaries, subscriptions, and more,
                     reducing administrative burdens and minimizing errors.
                   </p>
                   <a
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-white/70 transition-colors"
+                    className="inline-flex items-center text-sm hover:text-white/70 transition-colors
+                     
+                    "
                   >
                     Read more <ArrowRight className="ml-1 h-4 w-4" />
                   </a>
@@ -128,11 +135,11 @@ export default function Features() {
           </div>
 
           {/* Airdrops */}
-          <div className="w-[40%] relative">
-            <Card className=" bg-[#0A0A0A] border-gray-800">
+          <div className="lg:w-[40%] w-full">
+            <Card className=" bg-[#0A0A0A] border-gray-800 relative">
               <CardContent className="p-6">
-                <div className="space-y-4">
-                  <h2 className="text-xl font-semibold">Airdrops</h2>
+                <div className="space-y-4 text-[#eaeaea]">
+                  <h2 className="text-base  font-semibold">Airdrops</h2>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     Effortlessly distribute funds to recipients, with complete
                     transparency, robust security, and real-time tracking.
@@ -143,20 +150,19 @@ export default function Features() {
                   >
                     Read more <ArrowRight className="ml-1 h-4 w-4" />
                   </a>
-                  {/* <div className="relative h-48 w-full mt-4">
-                    <img
-                      src="/imgs/wallets.png"
-                      alt="Geometric cube illustration"
-                      className="object-cover rounded-lg"
-                    />
-                  </div> */}
                 </div>
               </CardContent>
-            </Card>
 
-            <div className="absolute left-0 top-0">
-              <img src="/imgs/solar.png" alt="" className="" />
-            </div>
+              <div className="absolute top-0 left-[50%] transform -translate-x-1/2">
+                <img src="/topShade.svg" alt="" />
+              </div>
+              <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
+                <img src="/leftShade.svg" alt="" />
+              </div>
+              <div className="absolute right-[-10%] top-[-10%] hidden lg:block">
+                <img src="/imgs/solar.png" alt="" className="" />
+              </div>
+            </Card>
           </div>
         </div>
       </div>
