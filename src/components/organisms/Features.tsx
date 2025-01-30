@@ -20,17 +20,17 @@ export default function Features() {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Retroactive Funding */}
-          <Card className="bg-[#0A0A0A] border-gray-800 relative">
+          <Card className="bg-dark border-gray-800 relative">
             {" "}
             <CardContent className="pt-6 pr-0">
               {" "}
               <div>
                 {" "}
-                <h2 className="text-base font-semibold text-[#eaeaea]">
+                <h2 className="text-base font-semibold text-heading">
                   {" "}
                   Retroactive Funding{" "}
                 </h2>
-                <p className="text-[#A5AEC0] text-sm leading-relaxed mt-4">
+                <p className="text-[#A5AEC0] text-sm leading-relaxed mt-4 font-urbanist">
                   Description: Reward contributors for their past work and
                   achievements, fostering a sense of appreciation and motivating
                   continued contributions.
@@ -39,7 +39,7 @@ export default function Features() {
                 <div className="flex justify-between items-start gap-16 mt-4">
                   <Link
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
+                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-link w-[200px] font-urbanist"
                   >
                     Read more
                     <Image
@@ -64,25 +64,35 @@ export default function Features() {
               </div>
             </CardContent>
             <div className="absolute top-0 left-[50%] transform -translate-x-1/2">
-              <img src="/topShade.svg" alt="" />
+              <Image
+                src="/topShade.svg"
+                alt="circular top shade image"
+                width={200}
+                height={180}
+              />
             </div>
             <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-              <img src="/leftShade.svg" alt="" />
+              <Image
+                src="/leftShade.svg"
+                alt="circular left shade image"
+                width={150}
+                height={138}
+              />
             </div>
           </Card>
 
           {/* Quadratic Funding */}
-          <Card className="bg-[#0A0A0A] border-gray-800 relative">
+          <Card className="bg-dark border-gray-800 relative">
             {" "}
             <CardContent className="pt-6 pr-0">
               {" "}
               <div>
                 {" "}
-                <h2 className="text-base font-semibold text-[#eaeaea]">
+                <h2 className="text-base font-semibold text-heading">
                   {" "}
                   Quadratic Funding{" "}
                 </h2>
-                <p className="text-[#A5AEC0] text-sm leading-relaxed mt-4">
+                <p className="text-[#A5AEC0] text-sm leading-relaxed mt-4 font-urbanist">
                   Amplify the impact of small contributions, create a more
                   inclusive funding model, and ensure that every voice is heard.
                 </p>
@@ -90,7 +100,7 @@ export default function Features() {
                 <div className="flex justify-between items-start gap-16 mt-4">
                   <Link
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
+                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-link w-[200px] font-urbanist"
                   >
                     Read more
                     <Image
@@ -115,10 +125,20 @@ export default function Features() {
               </div>
             </CardContent>
             <div className="absolute top-0 left-[50%] transform -translate-x-1/2">
-              <img src="/topShade.svg" alt="" />
+              <Image
+                src="/topShade.svg"
+                alt="circular top shade image"
+                width={200}
+                height={180}
+              />
             </div>
             <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-              <img src="/leftShade.svg" alt="" />
+              <Image
+                src="/leftShade.svg"
+                alt="circular left shade image"
+                width={150}
+                height={138}
+              />
             </div>
           </Card>
         </div>
@@ -126,14 +146,13 @@ export default function Features() {
         <div className="w-full flex gap-6 flex-col lg:flex-row mt-6">
           {/* Streaming */}
           <div className="lg:w-[60%] w-full">
-            <Card className=" bg-[#8256FF] border-none text-[#eaeaea]">
+            <Card className=" bg-[#8256FF] border-none text-heading">
               <CardContent className="p-6">
                 <div className="space-y-4 max-w-2xl">
                   <h2 className="text-base font-semibold">Streaming</h2>
                   <p
                     className="
-                   text-sm leading-relaxed 
-                  
+                   text-sm leading-relaxed font-urbanist                  
                   "
                   >
                     Streamline your payment workflows with automated solutions
@@ -142,7 +161,7 @@ export default function Features() {
                   </p>
                   <Link
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
+                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-link w-[200px] font-urbanist"
                   >
                     Read more
                     <Image
@@ -160,17 +179,17 @@ export default function Features() {
 
           {/* Airdrops */}
           <div className="lg:w-[40%] w-full">
-            <Card className=" bg-[#0A0A0A] border-gray-800 relative">
+            <Card className=" bg-dark border-gray-800 relative">
               <CardContent className="p-6">
-                <div className="space-y-4 text-[#eaeaea]">
+                <div className="space-y-4 text-heading">
                   <h2 className="text-base  font-semibold">Airdrops</h2>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-sm leading-relaxed font-urbanist">
                     Effortlessly distribute funds to recipients, with complete
                     transparency, robust security, and real-time tracking.
                   </p>
                   <Link
                     href="#"
-                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-[#E1E4EA] w-[200px]"
+                    className="inline-flex items-center text-sm hover:text-purple-400 transition-colors text-link w-[200px] font-urbanist"
                   >
                     Read more
                     <Image
@@ -185,13 +204,28 @@ export default function Features() {
               </CardContent>
 
               <div className="absolute top-0 left-[50%] transform -translate-x-1/2">
-                <img src="/topShade.svg" alt="" />
+                <Image
+                  src="/topShade.svg"
+                  alt="circular top shade image"
+                  width={200}
+                  height={180}
+                />
               </div>
               <div className="absolute top-[50%] left-0 transform -translate-y-1/2">
-                <img src="/leftShade.svg" alt="" />
+                <Image
+                  src="/leftShade.svg"
+                  alt="circular left shade image"
+                  width={150}
+                  height={138}
+                />
               </div>
               <div className="absolute right-[-10%] top-[-10%] hidden lg:block">
-                <img src="/imgs/solar.png" alt="" className="" />
+                <Image
+                  src="/imgs/solar.png"
+                  alt="image of a solar orbitting around"
+                  width={450}
+                  height={450}
+                />
               </div>
             </Card>
           </div>
