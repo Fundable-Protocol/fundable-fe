@@ -8,10 +8,10 @@ export default function Features() {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-center lg:text-left max-w-[250px] mx-auto md:max-w-[350px] lg:max-w-0 lg:max-w-none">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-center lg:text-left max-w-[250px] mx-auto md:max-w-[800px]  font-syne">
             Decentralized Funding Made Easy
           </h1>
-          <p className="text-sm text-[#CCCCCC] text-center  lg:text-right font-light">
+          <p className="text-sm text-[#CCCCCC] text-center lg:text-right font-light lg:max-w-[600px] lg:ml-auto">
             Fundable: Decentralized funding for retroactive, quadratic, and
             giveaway distributions, streamlining complex payments.
           </p>

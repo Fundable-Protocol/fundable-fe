@@ -68,6 +68,7 @@ export default {
       },
       fontFamily: {
         urbanist: ["Urbanist", "sans-serif"],
+        syne: ["Syne", "sans-serif"],
       },
     },
   },
