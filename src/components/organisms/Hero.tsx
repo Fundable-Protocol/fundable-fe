@@ -33,7 +33,9 @@ const Hero = () => {
                             </Link>
 
                             <div className="absolute -top-5-0">
-                                <img src="/imgs/fundableHero.svg" alt="fundable hero icon" />
+                                <Image src="/imgs/fundableHero.svg" alt="fundable hero icon" width={1000}
+                                    height={300}
+                                />
                             </div>
                         </div>
                     </div>
