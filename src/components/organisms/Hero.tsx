@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import LogoCloud from "../atoms/LogoCloud";
+import LogoCloud from "../molecules/LogoCloud";
 
 const Hero = () => {
     const heroText = {
@@ -23,11 +23,11 @@ const Hero = () => {
 
                         <div className="flex justify-center items-center gap-x-4  relative  h-[350px] ">
                             <Link href="/distribute" className=" z-10">
-                                <Button className="bg-[#8256FF]">Get Started</Button>
+                                <Button className="bg-purple">Get Started</Button>
                             </Link>
 
                             <Link href="#" className="z-10">
-                                <Button variant="secondary" className="bg-[#13111A] text-white">
+                                <Button variant="secondary" className="bg-gray_purple text-white">
                                     Discover More
                                 </Button>
                             </Link>

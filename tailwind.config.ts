@@ -20,6 +20,8 @@ export default {
         dark: "#0A0A0A",
         heading: "#eaeaea",
         link: "#E1E4EA",
+        purple: "#8256FF",
+        gray_purple: "#13111A",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
