@@ -1,27 +1,23 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react'
-import { Raleway, DM_Sans } from 'next/font/google';
+import clsx from 'clsx';
 
 interface UtilityDivProps {
     title: string;
     description: string;
-    image: string;
-    color: string;
+    image: StaticImageData;
+    color: 'efficient' | 'secure' | 'nolimits';
 }
 
-const raleway = Raleway({
-    weight: ['400', '700'],
-    subsets: ['latin'],
-})
-
-const dmSans = DM_Sans({
-    weight: ['400', '700'],
-    subsets: ['latin'],
-})
-
 function UtilityDiv({title, description, image, color}: UtilityDivProps) {
+  const titleColorClass = {
+    'efficient': 'text-utility-efficient',
+    'secure': 'text-utility-secure',
+    'nolimits': 'text-utility-nolimits'
+  }[color];
+
   return (
-    <div className='flex items-start gap-4 bg-[#1A1C2C] rounded-lg p-4 w-full lg:w-[33rem] min-h-[8rem] hover:bg-[#252837] transition-all duration-300'>
+    <div className='flex items-start gap-4 bg-utility-card rounded-lg p-4 w-full lg:w-[33rem] min-h-[8rem] hover:bg-utility-card_hover transition-all duration-300'>
         <div className='min-w-[48px] min-h-[48px] flex items-center justify-center'>
             <Image 
                 src={image} 
@@ -32,8 +28,8 @@ function UtilityDiv({title, description, image, color}: UtilityDivProps) {
             />
         </div>
         <div className='flex flex-col gap-2'>
-            <p className={`${raleway.className} font-semibold text-lg lg:text-xl`} style={{ color }}>{title}</p>
-            <p className={`${dmSans.className} text-[#B7B4CB] text-sm lg:text-base`}>{description}</p>
+            <p className={clsx('font-raleway font-semibold text-lg lg:text-xl', titleColorClass)}>{title}</p>
+            <p className="font-dm-sans text-utility-text text-sm lg:text-base">{description}</p>
         </div>
     </div>
   )
