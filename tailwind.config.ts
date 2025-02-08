@@ -22,6 +22,15 @@ export default {
         link: "#E1E4EA",
         purple: "#8256FF",
         gray_purple: "#13111A",
+        utility: {
+          efficient: "#2CBCA5",
+          secure: "#50ADD7",
+          nolimits: "#C742F7",
+          card: "#1A1C2C",
+          card_hover: "#252837",
+          text: "#B7B4CB",
+          description: "#CCCCCC"
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -71,6 +80,8 @@ export default {
       fontFamily: {
         urbanist: ["Urbanist", "sans-serif"],
         syne: ["Syne", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
+        "dm-sans": ["DM Sans", "sans-serif"],
       },
     },
   },
