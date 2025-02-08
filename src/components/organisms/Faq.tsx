@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader } from "../ui/card";
 import plusIcon from "../../../public/plus.svg";
 import minusIcon from "../../../public/minus.svg";
 import Sphere from "../../../public/abstract-sphere.svg";
+import blur from "../../../public/blur.svg";
+import star from "../../../public/star.svg";
 import { useState } from "react";
 
 const Faq = () => {
@@ -89,11 +91,11 @@ const Faq = () => {
         ))}
       </div>
 
-      <div className="w-full flex flex-col items-center justify-center gap-3 ">
+      <div className="w-full flex flex-col items-center justify-center gap-4 ">
         {faqData.map((data, index) => (
           <Card
             key={data.id}
-            className="bg-[#020616] border border-[#272B3B] w-full py-6 "
+            className="bg-[#020616] border border-[#272B3B] w-full py-6 rounded-[19px] "
           >
             <CardContent>
               <CardHeader
@@ -147,7 +149,7 @@ const Faq = () => {
       </div>
 
 
-      <div className="top-0 left-[5%] absolute  h-[205.27px] w-[186px] flex items-center justify-center" >
+      <div className="top-0 left-[5%] absolute  h-[205.27px] w-[186px] hidden md:flex items-center justify-center" >
      
                     <Image
                       src={Sphere}
@@ -157,6 +159,33 @@ const Faq = () => {
                       className=" object-cover w-full h-full "
                     />
                     </div>
+
+                    
+      <div className="top-[-28%] left-[50%] transform translate-x-[-50%] md:w-[950px] md:h-[950px] absolute  hidden md:flex  items-center justify-center  rounded-[50%] overflow-hidden " >
+     
+     <Image
+       src={blur}
+       alt="blur"
+       width={100}
+       height={100}
+       className=" object-cover w-full h-full "
+     />
+
+     
+     </div>
+
+     <div className="bottom-[-6%] left-[60%] transform translate-x-[-50%] md:w-[320.99px] md:h-[320.99px] absolute  hidden md:flex  items-center justify-center  rounded-[50%]  " >
+     
+     <Image
+       src={star}
+       alt="star"
+       width={100}
+       height={100}
+       className=" object-cover w-full h-full "
+     />
+
+     
+     </div>
       
     </section>
   );

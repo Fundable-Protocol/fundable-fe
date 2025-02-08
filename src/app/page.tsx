@@ -1,3 +1,4 @@
+import Blog from "@/components/organisms/Blog";
 import Faq from "@/components/organisms/Faq";
 import Features from "@/components/organisms/Features";
 import Footer from "@/components/organisms/Footer";
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Faq/>
+      <Blog/>
       <Footer/>
     </main>
   );
