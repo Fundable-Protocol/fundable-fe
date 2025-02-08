@@ -1,4 +1,5 @@
 import Features from "@/components/organisms/Features";
+import Footer from "@/components/organisms/Footer";
 import Hero from "@/components/organisms/Hero";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Hero />
       <Features />
+      <Footer/>
     </main>
   );
 }
