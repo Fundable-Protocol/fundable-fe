@@ -26,7 +26,7 @@ const utilities = [{
 
 function Utilities() {
   return (
-    <main className="text-white p-4 md:p-8 lg:p-12 relative -mt-0 md:-mt-4 lg:-mt-8">
+    <main className="text-white p-4 md:p-8 lg:p-12 relative -mt-0 ">
         <div className='max-w-7xl mx-auto'>
         
         <div className='w-full flex flex-row md:justify-between justify-center items-center gap-8'>
