@@ -58,7 +58,7 @@ const BlogCarousel = ({ setApi }: { setApi: (api: any) => void }) => {
     >
       <CarouselContent className=" w-full  " >
         {cardDetails.map((cardDetail, index) => (
-          <CarouselItem key={index} className="basis-1/2 md:basis-1/3  w-[167.5px]   md:max-w-[335px] md:min-w-[290px] mx-2     ">
+          <CarouselItem key={index} className="basis-1/2 lg:basis-1/3  w-[167.5px]   md:max-w-[335px] md:min-w-[290px] mx-2     ">
         
              <Card className="bg-red-800 w-[167.5px] md:min-w-[290px]  md:w-[335px] h-[199px] md:h-[398px] bg-[#14161F66] border border-[#1E212F] backdrop-blur-[40%] rounded-[15px] p-0 " >
              <CardContent className= "relative w-full h-full flex flex-col items-center justify-stretch gap-3 rounded-[15px] px-2 py-1  " >
