@@ -3,8 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader } from "../ui/card";impo
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 import carouselImage from "../../../public/carousel-card-img.svg"
 import cardBlur from "../../../public/card-blur.svg"
@@ -12,7 +10,7 @@ import SideBlur from "../../../public/side-blur.svg"
 import { FaArrowRight } from "react-icons/fa";
 
 
-const BlogCarousel = () => {
+const BlogCarousel = ({ setApi }: { setApi: (api: any) => void }) => {
 
   const cardDetails = [
     {
@@ -39,23 +37,30 @@ const BlogCarousel = () => {
       Image: carouselImage,
       link: "link"
     },
+    {
+      heading: "Talk it out with audio",
+      description: "Effortlessly distribute funds to recipients, with complete transparency, robust security, and real-time tracking.",
+      Image: carouselImage,
+      link: "link"
+    },
+    
   ]
 
 
 
     return (
         <Carousel
+        setApi={setApi}
       opts={{
         align: "start",
       }}
       className="w-full ml-auto max-w-[1172px] flex items-center justify-center z-[999] "
     >
-      <CarouselContent className=" w-full" >
+      <CarouselContent className=" w-full  " >
         {cardDetails.map((cardDetail, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3  w-[167.5px]  md:max-w-[335px] md:min-w-[290px]     ">
-            <div className="p-1 ">
-
-             <Card className="bg-red-800 w-[167.5px] md:min-w-[290px]  md:max-w-[335px] h-[199px] md:h-[398px] bg-[#14161F66] border border-[#1E212F] backdrop-blur-[40%] rounded-[15px] p-0 " >
+          <CarouselItem key={index} className="basis-1/2 md:basis-1/3  w-[167.5px]   md:max-w-[335px] md:min-w-[290px] mx-2     ">
+        
+             <Card className="bg-red-800 w-[167.5px] md:min-w-[290px]  md:w-[335px] h-[199px] md:h-[398px] bg-[#14161F66] border border-[#1E212F] backdrop-blur-[40%] rounded-[15px] p-0 " >
              <CardContent className= "relative w-full h-full flex flex-col items-center justify-stretch gap-3 rounded-[15px] px-2 py-1  " >
               <div className="w-full h-[50%] m-0 " >
             <Image src={cardDetail.Image} alt="image" width={100} height={100} className="w-full h-full object-contain" />
@@ -69,13 +74,10 @@ const BlogCarousel = () => {
             <Image src={SideBlur} alt="blur" height={100} width={100} className="absolute w-[39px] h-[109px] top-[35%] left-0 object-contain  " />
              </CardContent>
              </Card>
-            </div>
-
+        
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
     )
 }
