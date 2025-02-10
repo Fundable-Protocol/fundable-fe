@@ -70,7 +70,7 @@ const Faq = () => {
     <section className="relative flex items-center justify-center w-full   px-3 py-[10%] my-5 ">
         <div className="text-white z-[10000] w-full max-w-[1008px] mx-auto  flex flex-col items-center justify-center gap-8" >
       <div className=" text-center  flex items-center justify-center flex-col">
-        <h1 className="text-[42px] font-bold text-[#ffffff] leading-[47.88px] mb-2 font-syne ">
+        <h1 className=" text-[36px] md:text-[42px] font-bold text-[#ffffff] leading-[47.88px] mb-2 font-syne ">
           Frequently Asked Questions
         </h1>
         <p className=" text-[#6F717E] leading-[19.88px] font-medium text-[12.6px] md:w-[260px] w-[325px] ">
