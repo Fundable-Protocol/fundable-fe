@@ -1,10 +1,14 @@
-import Image from "next/image";
-import IconArgent from '../../../public/imgs/IconArgent.svg'
-import IconStarknet from '../../../public/imgs/IconStarknet.svg'
-import IconMetamask from '../../../public/imgs/IconMetamask.svg'
-import IconBravaas from '../../../public/imgs/IconBravaas.svg'
-import IconOkk from '../../../public/imgs/IconOkk.svg'
+"use client";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+import IconArgent from "../../../public/imgs/IconArgent.svg";
+import IconStarknet from "../../../public/imgs/IconStarknet.svg";
+import IconMetamask from "../../../public/imgs/IconMetamask.svg";
+import IconBravaas from "../../../public/imgs/IconBravaas.svg";
+import IconOkk from "../../../public/imgs/IconOkk.svg";
+import { Fragment } from "react";
 
 export default function LogoCloud() {
   const logos = [
@@ -31,13 +35,34 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className="bg-transparent pb-24 sm:pb-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-4 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-5 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          {logos.map((logo, index) => (
-            <Image key={index} src={logo.image} alt={logo.alt} width={152} height={48} />
+    <div className="bg-transparent pb-24 sm:pb-32 container">
+      <div className="flex overflow-hidden">
+        <motion.div
+          animate={{
+            x: "-50%",
+          }}
+          transition={{
+            duration: 5,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+          className="flex flex-none gap-24 pr-24"
+        >
+          {Array.from({ length: 2 }).map((_, i) => (
+            <Fragment key={i}>
+              {logos.map((logo, index) => (
+                <Image
+                  key={index}
+                  src={logo.image}
+                  alt={logo.alt}
+                  width={152}
+                  height={48}
+                  priority
+                />
+              ))}
+            </Fragment>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
