@@ -27,9 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black`}>
+      <body
+        className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black flex flex-col h-dvh overflow-hidden`}
+      >
         <Navbar />
-        {children}
+        <main className="flex-1 flex flex-col overflow-auto">{children}</main>
       </body>
     </html>
   );

@@ -12,8 +12,8 @@ const Hero = () => {
   };
 
   return (
-    <header className="w-full bg-black px-8 xl:px-0 pt-24 md:max-w-full mx-auto">
-      <div className="flex flex-col justify-center items-center space-y-4 text-center max-w-5xl mx-auto">
+    <header className="w-full bg-black px-8 xl:px-0 pt-24 max-w-5xl mx-auto">
+      <div className="flex flex-col justify-center items-center space-y-4 text-center">
         <h1 className="text-white text-5xl md:text-[5rem] font-bric font-bold font-syne text-center">
           {heroText.h1Label}
         </h1>
@@ -40,6 +40,7 @@ const Hero = () => {
           <Image src={HeroImg} alt="fundable hero icon" priority />
         </div>
       </div>
+
       <LogoCloud />
     </header>
   );

@@ -35,18 +35,18 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className="bg-transparent pb-24 sm:pb-32 container">
+    <div className="bg-transparent pb-24 sm:pb-32">
       <div className="flex overflow-hidden">
         <motion.div
           animate={{
             x: "-50%",
           }}
           transition={{
-            duration: 5,
+            duration: 25,
             ease: "linear",
             repeat: Infinity,
           }}
-          className="flex flex-none gap-24 pr-24"
+          className="flex flex-none gap-12 md:gap-24"
         >
           {Array.from({ length: 2 }).map((_, i) => (
             <Fragment key={i}>
