@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardHeader } from "../ui/card";import {
+import { Card, CardContent, CardDescription} from "../ui/card";import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -7,10 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader } from "../ui/card";impo
 import carouselImage from "../../../public/carousel-card-img.svg"
 import cardBlur from "../../../public/card-blur.svg"
 import SideBlur from "../../../public/side-blur.svg"
-import { FaArrowRight } from "react-icons/fa";
+import { ArrowRight } from "lucide-react";
 
 
-const BlogCarousel = ({ setApi }: { setApi: (api: any) => void }) => {
+const BlogCarousel = ({ setApi }: { setApi: (api: string) => void }) => {
 
   const cardDetails = [
     {
@@ -68,7 +68,7 @@ const BlogCarousel = ({ setApi }: { setApi: (api: any) => void }) => {
             <CardDescription className=" w-full  h-full flex flex-col items-start justify-evenly py-3 gap-2 "  >
               <h1 className="text-[#ffffff] text-[7.7px] md:text-[15.58px] font-medium leading-[10.91px] md:leading-[21.81px] " >{cardDetail.heading} </h1>
               <p className="text-[#A5AEC0] text-[8.31px] md:text-[16.62px] font-medium leading-[12.46px] md:leading-[24.93px] font-urbanist  " >{cardDetail.description} </p>
-              <a href={cardDetail.link} className="text-[#7A7A7A] text-[7.63px] md:text-[15.27px] font-semibold font-urbanist flex items-center gap-2 md:leading-[15.24px] leading-[7.62px] " > <span>Read more</span> <span><FaArrowRight/></span> </a>
+              <a href={cardDetail.link} className="text-[#7A7A7A] text-[7.63px] md:text-[15.27px] font-semibold font-urbanist flex items-center gap-2 md:leading-[15.24px] leading-[7.62px] " > <span>Read more</span> <span><ArrowRight/></span> </a>
             </CardDescription>
             <Image src={cardBlur} alt="blur" height={100} width={100} className="absolute w-[155px] h-[143px] top-[25%] right-[15%] object-cover " />
             <Image src={SideBlur} alt="blur" height={100} width={100} className="absolute w-[39px] h-[109px] top-[35%] left-0 object-contain  " />
