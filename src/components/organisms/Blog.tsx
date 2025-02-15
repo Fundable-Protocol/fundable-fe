@@ -3,7 +3,7 @@ import BlogCarousel from "../molecules/BlogCarousel";
 import Image from "next/image";
 import orbit from "../../../public/orbit.svg"
 import { useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {  ChevronLeft, ChevronRight } from "lucide-react";
 
 
 const Blog = () => {
@@ -25,11 +25,11 @@ const Blog = () => {
 
           <button onClick={handlePrev} 
   className="bg-transparent cursor-pointer flex items-center justify-center w-[47.88px] h-[47.88px] text-[24px] text-[#4A4949] border-4 border-[#4A4949] hover:border-[#ffffff] hover:text-[#ffffff] transition-all duration-300 ease-in-out rounded-full ">
-            <ArrowLeft  />
+            <ChevronLeft  />
           </button>
 
           <button  onClick={handleNext}    className="bg-transparent cursor-pointer flex items-center justify-center w-[47.88px] h-[47.88px] text-[24px] text-[#4A4949] border-4 border-[#4A4949] hover:border-[#ffffff] hover:text-[#ffffff] transition-all duration-300 ease-in-out rounded-full ">
-            <ArrowRight />
+            <ChevronRight />
           </button>
 
         </div>
