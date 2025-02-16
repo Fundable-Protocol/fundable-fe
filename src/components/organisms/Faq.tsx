@@ -70,10 +70,10 @@ const Faq = () => {
     <section className="relative flex items-center justify-center w-full   px-3 py-[10%] my-5 ">
         <div className="text-white z-[10000] w-full max-w-[1008px] mx-auto  flex flex-col items-center justify-center gap-8" >
       <div className=" text-center  flex items-center justify-center flex-col">
-        <h1 className=" text-[36px] md:text-[42px] font-bold text-[#ffffff] leading-[47.88px] mb-2 font-syne ">
+        <h1 className=" text-[36px] md:text-[42px] font-bold text-white leading-[47.88px] mb-2 font-syne ">
           Frequently Asked Questions
         </h1>
-        <p className=" text-[#6F717E] leading-[19.88px] font-medium text-[12.6px] md:w-[260px] w-[325px] ">
+        <p className=" text-utility-titleP leading-[19.88px] font-medium text-[12.6px] md:w-[260px] w-[325px] ">
           Get the answers you need to navigate our platform with confidence.
         </p>
       </div>
@@ -82,7 +82,7 @@ const Faq = () => {
         {buttonProps.map((buttonProp) => (
           <div
             key={buttonProp.id}
-            className={`bg-gradient-to-b from-[#202020] to-[#696767] p-[2px] rounded-[20.5px] ${
+            className={`bg-gradient-to-b from-utility-buttonGradient1 to-utility-buttonGradient2 p-[2px] rounded-[20.5px] ${
               buttonProp.id === 5 ? "ml-auto " : "null"
             } `}
           >
@@ -95,7 +95,7 @@ const Faq = () => {
         {faqData.map((data, index) => (
           <Card
             key={data.id}
-            className="bg-[#020616] border border-[#272B3B] w-full py-6 rounded-[19px] "
+            className="bg-utility-faqBg border border-utility-faqBd w-full py-6 rounded-[19px] "
           >
             <CardContent>
               <CardHeader
@@ -103,7 +103,7 @@ const Faq = () => {
                 className=" p-0 mb-5 w-full flex flex-row items-center justify-between gap-3 cursor-pointer "
               >
                 {" "}
-                <h1 className=" text-[#91949A] text-[18.2px] font-semibold ">
+                <h1 className=" text-utility-faqIcon text-[18.2px] font-semibold ">
                   {" "}
                   {data.heading}{" "}
                 </h1>
@@ -136,7 +136,7 @@ const Faq = () => {
 
               {openIndex === index && (
                 <CardDescription className=" p-0 ">
-                  <p className=" max-w-[570px] text-[#888B96] font-semibold text-[16.6px] leading-[26px] ">
+                  <p className=" max-w-[570px] text-utility-faqDesc font-semibold text-[16.6px] leading-[26px] ">
                     {" "}
                     {data.content}{" "}
                   </p>

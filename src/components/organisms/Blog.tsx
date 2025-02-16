@@ -7,7 +7,7 @@ import {  ChevronLeft, ChevronRight } from "lucide-react";
 
 
 const Blog = () => {
-  const [api, setApi] = useState<any>(null);
+const [api, setApi] = useState<EmblaCarouselType | null>(null);
 
   const handlePrev = () => api?.scrollPrev();
   const handleNext = () => api?.scrollNext();
@@ -24,11 +24,11 @@ const Blog = () => {
 
 
           <button onClick={handlePrev} 
-  className="bg-transparent cursor-pointer flex items-center justify-center w-[47.88px] h-[47.88px] text-[24px] text-[#4A4949] border-4 border-[#4A4949] hover:border-[#ffffff] hover:text-[#ffffff] transition-all duration-300 ease-in-out rounded-full ">
+  className="bg-transparent cursor-pointer flex items-center justify-center w-[47.88px] h-[47.88px] text-[24px] text-[darkGray] border-4 border-[darkGray] hover:border-white hover:text-white transition-all duration-300 ease-in-out rounded-full ">
             <ChevronLeft  />
           </button>
 
-          <button  onClick={handleNext}    className="bg-transparent cursor-pointer flex items-center justify-center w-[47.88px] h-[47.88px] text-[24px] text-[#4A4949] border-4 border-[#4A4949] hover:border-[#ffffff] hover:text-[#ffffff] transition-all duration-300 ease-in-out rounded-full ">
+          <button  onClick={handleNext}    className="bg-transparent cursor-pointer flex items-center justify-center w-[47.88px] h-[47.88px] text-[24px] text-[darkGray] border-4 border-[darkGray] hover:border-white hover:text-white transition-all duration-300 ease-in-out rounded-full ">
             <ChevronRight />
           </button>
 

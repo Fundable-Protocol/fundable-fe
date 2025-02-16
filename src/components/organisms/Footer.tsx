@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-full text-[#ffffff] flex items-stretch justify-evenly md:justify-between md:min-h-[245.78px] gap-3 px-3 py-3 ">
+    <footer className="w-full text-white flex items-stretch justify-evenly md:justify-between md:min-h-[245.78px] gap-3 px-3 py-3 ">
       <div className="  mx-auto flex items-center justify-center md:block  px-1 ">
         <Image
           priority
@@ -53,13 +53,13 @@ const Footer = () => {
           </div>
 
           <ul className=" flex flex-row items-center justify-center gap-1 ">
-            <li className=" text-[10.53px] font-normal leading-[13.69px] py-[5.27px] px-[17.56px] border-[0.88px] border-[#fffff] max-w-[72.11px] max-h-[24.53px] rounded-[35.11px] mx-1 border-opacity-50 ">
+            <li className=" text-[10.53px] font-normal leading-[13.69px] py-[5.27px] px-[17.56px] border-[0.88px] border-white max-w-[72.11px] max-h-[24.53px] rounded-[35.11px] mx-1 border-opacity-50 ">
               <a href="#" className=" cursor-pointer " >Twitter</a>
             </li>
-            <li className="  text-[10.53px] font-normal leading-[13.69px] py-[5.27px] px-[17.56px] border-[0.88px] border-[#fffff] max-w-[72.11px] max-h-[24.53px] rounded-[35.11px] mx-1 border-opacity-50 ">
+            <li className="  text-[10.53px] font-normal leading-[13.69px] py-[5.27px] px-[17.56px] border-[0.88px] border-white max-w-[72.11px] max-h-[24.53px] rounded-[35.11px] mx-1 border-opacity-50 ">
               <a href="#" className=" cursor-pointer ">Discord</a>
             </li>
-            <li className="text-[10.53px] font-normal leading-[13.69px] py-[5.27px] px-[17.56px] border-[0.88px] border-[#fffff] max-w-[72.11px] max-h-[24.53px] rounded-[35.11px] mx-1 border-opacity-50">
+            <li className="text-[10.53px] font-normal leading-[13.69px] py-[5.27px] px-[17.56px] border-[0.88px] border-white max-w-[72.11px] max-h-[24.53px] rounded-[35.11px] mx-1 border-opacity-50">
               <a href="#" className=" cursor-pointer ">Twitter</a>
             </li>
           </ul>
