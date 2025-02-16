@@ -19,22 +19,26 @@ const Dialog = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const dialog = dialogRef.current;
-
+  
+    const closeDialog = () => {
+      router.replace(window.location.pathname);
+    };
+  
     if (showDialog) {
       dialog?.showModal();
       document.body.style.overflow = "hidden";
-
+  
       dialog?.addEventListener("close", closeDialog);
     } else {
       dialog?.close();
       document.body.style.overflow = "";
     }
-
+  
     return () => {
       dialog?.removeEventListener("close", closeDialog);
       document.body.style.overflow = "";
     };
-  }, [showDialog]);
+  }, [showDialog, router]); 
 
   return (
     <dialog ref={dialogRef} className="relative backdrop:transparent w-full">
