@@ -34,7 +34,7 @@ function Utilities() {
                 Send payments in <br/>crypto currencies
             </p>
             <p className='font-normal text-[1rem] text-center lg:text-right text-utility-description max-w-[600px] md:block hidden'>
-                Unlock the full potential of decentralized funding with Fundable\'s <br className='hidden lg:block'/>
+                Unlock the full potential of decentralized funding with Fundable&#39;s <br className='hidden lg:block'/>
                 efficient, transparent, and community-driven solutions.
             </p>
         </div>
@@ -52,7 +52,7 @@ function Utilities() {
             </div>
 
             <p className='font-normal text-sm md:text-[1rem] text-center md:text-right text-utility-description max-w-[600px] block md:hidden'>
-                Unlock the full potential of decentralized funding with Fundable\'s <br className='hidden lg:block'/>
+                Unlock the full potential of decentralized funding with Fundable&#39;s <br className='hidden lg:block'/>
                 efficient, transparent, and community-driven solutions.
             </p>
 
