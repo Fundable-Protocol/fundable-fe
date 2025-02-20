@@ -10,7 +10,7 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1rem",
+      padding: "2rem",
       screens: {
         "2xl": "1700px",
       },
@@ -29,7 +29,7 @@ export default {
           card: "#1A1C2C",
           card_hover: "#252837",
           text: "#B7B4CB",
-          description: "#CCCCCC"
+          description: "#CCCCCC",
         },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 
+import IconOkk from "../../../public/imgs/IconOkk.svg";
 import IconArgent from "../../../public/imgs/IconArgent.svg";
+import IconBravaas from "../../../public/imgs/IconBravaas.svg";
 import IconStarknet from "../../../public/imgs/IconStarknet.svg";
 import IconMetamask from "../../../public/imgs/IconMetamask.svg";
-import IconBravaas from "../../../public/imgs/IconBravaas.svg";
-import IconOkk from "../../../public/imgs/IconOkk.svg";
-import { Fragment } from "react";
 
 export default function LogoCloud() {
   const logos = [
@@ -35,7 +35,7 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className="bg-transparent pb-24 sm:pb-32">
+    <div className="md:-mt-16 pb-24 sm:pb-28 z-10">
       <div className="flex overflow-hidden">
         <motion.div
           animate={{
@@ -51,14 +51,7 @@ export default function LogoCloud() {
           {Array.from({ length: 2 }).map((_, i) => (
             <Fragment key={i}>
               {logos.map((logo, index) => (
-                <Image
-                  key={index}
-                  src={logo.image}
-                  alt={logo.alt}
-                  width={152}
-                  height={48}
-                  priority
-                />
+                <Image key={index} src={logo.image} alt={logo.alt} priority />
               ))}
             </Fragment>
           ))}
