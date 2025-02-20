@@ -5,8 +5,6 @@ import ConnectWalletButton from "@/components/atoms/Button";
 import Logo from "../../../public/imgs/fundable_logo.png";
 
 const Navbar = async () => {
-  // md:pr-10 md:pl-12
-
   const links = [
     { title: "Solutions", url: "#" },
     { title: "Resources", url: "#" },

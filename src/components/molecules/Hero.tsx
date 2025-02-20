@@ -1,66 +1,55 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
-
-import laptopPhoneImage from "../../public/imgs/laptop_phone.png";
-import walletsImg from "../../public/imgs/wallets.png";
+import LogoCloud from "../molecules/LogoCloud";
 
 const Hero = () => {
   const heroText = {
     h1Label: "Refining automated payments in Web3",
-    text: "One stop solution for subscriptions, giveaways, salaries, SIPs and more automated payments in web3.",
+    text: "Streamline your funding operations with Fundable's comprehensive platform, featuring automated payments, retroactive funding, quadratic funding, and giveaway distribution – all in one intuitive interface.",
   };
+
   return (
-    <header className="w-full bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-[#5b21b6] via-[#0d0019] to-[#0d0019] rounded-xl px-8 xl:px-0">
-      <div className="flex justify-center items-center py-24 xl:pb-0 flex-col text-balance">
+    <header className="w-full bg-black rounded-xl px-8 xl:px-0">
+      <div className="flex justify-center items-center pt-24 xl:pb-0 flex-col text-balance -mb-10">
         <div className="md:max-w-4xl text-center space-y-4">
-          <h1 className="text-white text-5xl md:text-[5rem] md:leading-[6rem] font-bric font-bold">
+          <h1 className="text-white text-5xl md:text-[4rem]  font-bric font-bold font-syne">
             {heroText.h1Label}
           </h1>
 
           <div className="space-y-6">
-            <p className="text-[#DADADA] max-w-xl md:max-w-[85%] mx-auto md:text-2xl">
+            <p className="text-[#DADADA] max-w-xl md:max-w-[90%] mx-auto md:text-base font-urbanist">
               {heroText.text}
             </p>
-            <div className="flex justify-center gap-x-4">
-              <Link href="/distribute">
-                <Button>Get Started</Button>
+
+            <div className="flex justify-center items-center gap-x-4  relative  h-[350px] ">
+              <Link href="/dashboard" className=" z-10">
+                <Button className="bg-purple">Get Started</Button>
               </Link>
-              <Button variant="secondary">Learn More</Button>
+
+              <Link href="#" className="z-10">
+                <Button
+                  variant="secondary"
+                  className="bg-gray_purple text-white"
+                >
+                  Discover More
+                </Button>
+              </Link>
+
+              <div className="absolute -top-5-0">
+                <Image
+                  src="/imgs/fundableHero.svg"
+                  alt="fundable hero icon"
+                  width={1000}
+                  height={300}
+                />
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="relative m-10 md:mt-20 xs:mb-0">
-          <Image
-            src={walletsImg}
-            width={850}
-            height={74}
-            alt="hero-card"
-            priority
-            className="hidden md:block h-auto w-auto"
-          />
-          <Image
-            src={walletsImg}
-            width={50}
-            height={50}
-            alt="hero-card"
-            priority
-            className="block max-w-xs md:hidden h-auto w-auto"
-          />
-        </div>
       </div>
 
-      <div className="relative aspect-[3/1] hidden xl:block">
-        <Image
-          src={laptopPhoneImage}
-          priority
-          fill
-          alt="hero-laptop-phone"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-contain translate-y-52"
-        />
-      </div>
+      <LogoCloud />
     </header>
   );
 };

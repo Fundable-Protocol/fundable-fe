@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/organisms/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,8 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black`}>
-        <Navbar />
+      <body
+        className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black`}
+      >
         {children}
       </body>
     </html>
