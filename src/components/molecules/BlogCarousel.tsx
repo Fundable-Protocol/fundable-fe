@@ -12,7 +12,7 @@ import { ArrowRight } from "lucide-react";
 import { CarouselApi } from "../ui/carousel";
 
 interface BlogCarouselProps {
-  setApi: (api: CarouselApi) => void; 
+  setApi: (api: CarouselApi) => void;
 }
 
 const BlogCarousel = ({ setApi }: BlogCarouselProps) => {
@@ -56,11 +56,13 @@ const BlogCarousel = ({ setApi }: BlogCarouselProps) => {
 
   return (
     <Carousel
-      setApi={setApi} 
+      setApi={setApi}
       opts={{
         align: "start",
       }}
-      className="w-full ml-auto max-w-[1172px] flex items-center justify-center z-[999]"
+      // max-w-[1172px]
+      // ml-auto
+      className="w-full   flex items-center justify-center z-[999]"
     >
       <CarouselContent className="w-full">
         {cardDetails.map((cardDetail, index) => (

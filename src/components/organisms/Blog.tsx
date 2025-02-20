@@ -8,28 +8,23 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CarouselApi } from "../ui/carousel";
 
 const Blog = () => {
-
   const [api, setApi] = useState<CarouselApi | null>(null);
-
 
   const handlePrev = () => {
     api?.scrollPrev();
   };
 
-  
   const handleNext = () => {
     api?.scrollNext();
   };
 
   return (
     <section className="relative text-white w-full flex items-center justify-center flex-col gap-4 px-4 md:pb-[13%] overflow-hidden">
-  
       <header className="w-full max-w-[1172px] flex items-center justify-between font-syne mx-auto md:ml-auto pr-[5%] mb-[2%]">
         <h1 className="max-w-[504px] font-bold text-[30px] md:text-[42px] leading-[30px] md:leading-[47.88px]">
           Read From <br /> Our Blog
         </h1>
 
-       
         <div className="flex flex-row items-center gap-3">
           <button
             onClick={handlePrev}
@@ -47,10 +42,8 @@ const Blog = () => {
         </div>
       </header>
 
-     
       <BlogCarousel setApi={setApi} />
 
-      
       <div className="absolute bottom-0 right-[5%] w-[557.68px] h-[403.88px] hidden md:flex items-center justify-center">
         <Image
           src={orbit}
