@@ -1,9 +1,10 @@
+
 import SideBar from "@/components/organisms/SideBar";
 import SidebarNav from "@/components/molecules/SidebarNav";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen min-w-full bg-red-700 grid grid-cols-[1fr_5fr]">
+    <div className="min-h-screen min-w-full app-background grid grid-cols-[1fr_5fr]">
       <SideBar />
       <div className="flex flex-col">
         <SidebarNav />
