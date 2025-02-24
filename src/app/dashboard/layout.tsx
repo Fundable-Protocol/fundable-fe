@@ -1,14 +1,24 @@
-import SideBar from "@/components/organisms/SideBar";
+import { SideBar } from "@/components/organisms/SideBar";
 import SidebarNav from "@/components/molecules/SidebarNav";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Syne } from "next/font/google";
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-syne",
+});
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen min-w-full bg-red-700 grid grid-cols-[1fr_5fr]">
-      <SideBar />
-      <div className="flex flex-col">
-        <SidebarNav />
-        <div className="flex-1 bg-purple">{children}</div>
-      </div>
+    <div className="min-h-screen min-w-full app-background grid grid-cols-[1fr_5fr]">
+      <SidebarProvider>
+        <SideBar />
+        <div className="flex flex-col">
+          <SidebarNav />
+          <div className="flex-1">{children}</div>
+        </div>
+      </SidebarProvider>
     </div>
   );
 };
