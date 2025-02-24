@@ -43,7 +43,6 @@ export function SideBar() {
 
   return (
     <>
-      {/* Burger Icon for Mobile */}
       <div className="md:hidden flex h-16 items-center">
         <Button
           variant="ghost"
@@ -54,14 +53,11 @@ export function SideBar() {
           <SidebarTrigger className="text-white hover:bg-purple" />
         </Button>
       </div>
-
-      {/* Sidebar (Visible on Large Screens, Toggles on Mobile) */}
       <Sidebar
         className={`dark text-white w-64 h-full fixed left-0 top-0 z-50 flex flex-col justify-between transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
-        {/* Sidebar Header - Logo & Close Button */}
         <SidebarHeader className="flex items-center justify-between py-6 px-4">
           <div className="flex items-center space-x-2">
             <Image src="/fundable-logo.svg" alt="Logo" width={40} height={40} />
@@ -69,10 +65,8 @@ export function SideBar() {
               Fundable
             </span>
           </div>
-          {/* Close Button for Mobile */}
         </SidebarHeader>
 
-        {/* Sidebar Content - Menu Items */}
         <SidebarContent className="flex flex-col gap-1 px-4">
           <SidebarGroup>
             {menuItems.map(({ icon: Icon, label }) => (
@@ -86,7 +80,6 @@ export function SideBar() {
                 }`}
                 onClick={() => setActiveItem(label)}
               >
-                {/* Icon with circular effect */}
                 <div className="relative flex items-center justify-center w-8 h-8">
                   {activeItem === label && (
                     <span className="absolute w-8 h-8 bg-[#151517] rounded-full opacity-100 transition-opacity" />
@@ -99,7 +92,6 @@ export function SideBar() {
           </SidebarGroup>
         </SidebarContent>
 
-        {/* Sidebar Footer - Logout & Theme Toggle */}
         <SidebarFooter className="p-4 flex flex-col gap-4">
           <Button
             variant="ghost"
@@ -111,7 +103,6 @@ export function SideBar() {
             Logout
           </Button>
 
-          {/* Theme Toggle */}
           <div className="flex items-center justify-between p-2 bg-[#1a1a1a] rounded-full w-24">
             <Button
               variant="ghost"
@@ -137,7 +128,6 @@ export function SideBar() {
         </SidebarFooter>
       </Sidebar>
 
-      {/* Overlay when sidebar is open on mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
