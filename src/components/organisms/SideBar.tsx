@@ -43,14 +43,7 @@ export function SideBar() {
   return (
     <>
       <div className="md:hidden flex h-16 items-center">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="hover:bg-purple"
-          onClick={() => setIsOpen(true)}
-        >
-          <SidebarTrigger className="text-white hover:bg-purple" />
-        </Button>
+        <SidebarTrigger className="text-white hover:bg-purple" />
       </div>
       <Sidebar
         className={`dark text-white w-64 h-full fixed left-0 top-0 z-50 flex flex-col justify-between transition-transform duration-300 ${
