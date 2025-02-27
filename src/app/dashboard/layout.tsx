@@ -1,6 +1,6 @@
 import { SideBar } from "@/components/organisms/SideBar";
 import SidebarNav from "@/components/molecules/SidebarNav";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { Syne } from "next/font/google";
 
 const syne = Syne({
