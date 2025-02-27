@@ -10,16 +10,16 @@ import {
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
-  BarChart3,
   Wallet,
   Eye,
-  BookOpen,
+  BookOpenText,
   UserRound,
-  HelpCircle,
   LogOut,
   Sun,
   Moon,
 } from "lucide-react";
+import GraphIcon from "../atoms/GraphIcon";
+import BooleanIcon from "../atoms/PaymmentStreamIcon";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -32,12 +32,12 @@ export function SideBar() {
 
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard" },
-    { icon: BarChart3, label: "Distribution" },
-    { icon: Wallet, label: "Payment Stream" },
+    { icon: GraphIcon, label: "Distribution" },
+    { icon: BooleanIcon, label: "Payment Stream" },
     { icon: Eye, label: "Airdrop" },
-    { icon: BookOpen, label: "Analytics" },
+    { icon: BookOpenText, label: "Analytics" },
     { icon: UserRound, label: "History" },
-    { icon: HelpCircle, label: "Help" },
+    { icon: Wallet, label: "Help" },
   ];
 
   return (
