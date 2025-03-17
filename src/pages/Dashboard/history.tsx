@@ -157,59 +157,61 @@ const HistoryComponent: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen p-6">
+        <div className="min-h-screen p-3 sm:p-6">
             <Head>
                 <title>Transaction History</title>
                 <meta name="description" content="Cryptocurrency Transaction History" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
             <div className="max-w-6xl mx-auto rounded-lg shadow-lg overflow-hidden">
-                <div className="py-4 text-white font-bold text-[16px]">
+                <div className="py-3 sm:py-4 text-white font-bold text-[14px] sm:text-[16px] px-2 sm:px-4">
                     Transaction History
                 </div>
 
-                <div className="overflow-x-auto text-[14px]">
+                <div className="overflow-x-auto text-[12px] sm:text-[14px]">
                     <table className="w-full">
                         <thead className="bg-gray-700 text-gray-300 border-b border-gray-700">
                             <tr>
-                                <th className="px-4 py-3 text-center bg-[#21163F]">S/N</th>
-                                <th className="px-4 py-3 text-center bg-[#21163F33]">Amount</th>
-                                <th className="px-4 py-3 text-center bg-[#21163F33]">Action</th>
-                                <th className="px-4 py-3 text-center bg-[#21163F33]">Token</th>
-                                <th className="px-4 py-3 text-center bg-[#21163F33]">Status</th>
-                                <th className="px-4 py-3 text-center bg-[#21163F33]">Date</th>
-                                <th className="px-4 py-3 text-center bg-[#21163F33]">Actions</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F]">S/N</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F33]">Amount</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F33]">Action</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F33]">Token</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F33]">Status</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F33]">Date</th>
+                                <th className="px-2 sm:px-4 py-2 sm:py-3 text-center bg-[#21163F33]">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {transactions.map((transaction) => (
                                 <tr
                                     key={transaction.id}
-                                    className="border-b border-gray-700 hover:bg-gray-700 transition-colors text-[12px] bg-gray-800"
+                                    className="border-b border-gray-700 hover:bg-gray-700 transition-colors text-[10px] sm:text-[12px] bg-gray-800"
                                 >
-                                    <td className="px-4 py-3 text-white text-center bg-[#21163F] border-b border-gray-700">{transaction.id}</td>
-                                    <td className="px-4 py-3 text-center text-white border-b border-gray-700">
+                                    <td className="px-2 sm:px-4 py-2 sm:py-3 text-white text-center bg-[#21163F] border-b border-gray-700">{transaction.id}</td>
+                                    <td className="px-2 sm:px-4 py-2 sm:py-3 text-center text-white border-b border-gray-700">
                                         {transaction.amount.toLocaleString()}
                                     </td>
-                                    <td className="px-4 text-center py-3 border-b border-gray-700">
+                                    <td className="px-2 sm:px-4 text-center py-2 sm:py-3 border-b border-gray-700">
                                         <div className="text-center">
                                             <span className="text-white">{transaction.action}</span>
                                         </div>
                                     </td>
-                                    <td className="px-4 py-3 border-b border-gray-700">
-                                        <div className="flex items-center space-x-2 justify-center">
+                                    <td className="px-2 sm:px-4 py-2 sm:py-3 border-b border-gray-700">
+                                        <div className="flex items-center space-x-1 sm:space-x-2 justify-center">
                                             <Image
                                                 src={TOKEN_SYMBOLS[transaction.token]}
                                                 alt={`${transaction.token} icon`}
-                                                width={18}
-                                                height={18}
+                                                width={16}
+                                                height={16}
+                                                className="w-4 h-4 sm:w-5 sm:h-5"
                                             />
                                             <span className="text-white">{transaction.token}</span>
                                         </div>
                                     </td>
-                                    <td className="px-4 text-center py-3 border-b border-gray-700">
+                                    <td className="px-2 sm:px-4 text-center py-2 sm:py-3 border-b border-gray-700">
                                         <span className={`
-                                            px-2 py-1 rounded-md text-xs font-semibold
+                                            px-1 sm:px-2 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs font-semibold
                                             ${transaction.status === 'Successful'
                                                 ? 'bg-white text-green-500'
                                                 : 'bg-white text-red-500'
@@ -218,10 +220,13 @@ const HistoryComponent: React.FC = () => {
                                             {transaction.status}
                                         </span>
                                     </td>
-                                    <td className="px-4 py-3 text-center text-white border-b border-gray-700">{transaction.date}</td>
-                                    <td className="px-4 py-3 border-b border-gray-700 text-center">
+                                    <td className="px-2 sm:px-4 py-2 sm:py-3 text-center text-white border-b border-gray-700">
+                                        <span className="hidden sm:inline">{transaction.date}</span>
+                                        <span className="sm:hidden">{transaction.date.split(' ')[0]}</span>
+                                    </td>
+                                    <td className="px-2 sm:px-4 py-2 sm:py-3 border-b border-gray-700 text-center">
                                         <button
-                                            className="text-white text-center hover:text-blue-300 transition-colors underline"
+                                            className="text-white text-center hover:text-blue-300 transition-colors underline text-[10px] sm:text-[12px]"
                                             onClick={() => openModal(transaction)}
                                         >
                                             View Receipt
@@ -233,17 +238,17 @@ const HistoryComponent: React.FC = () => {
                     </table>
                 </div>
 
-                <div className="flex justify-between p-4 text-white">
-                    <div className="text-gray-300 px-2">Page 1 of 1</div>
+                <div className="flex flex-col sm:flex-row justify-between items-center p-2 sm:p-4 text-white">
+                    <div className="text-gray-300 px-2 mb-2 sm:mb-0 text-[12px] sm:text-[14px]">Page 1 of 1</div>
                     <div>
                         <button
-                            className="px-4 py-2 mx-2 bg-gray-600 rounded hover:bg-gray-500 disabled:opacity-50"
+                            className="px-2 sm:px-4 py-1 sm:py-2 mx-1 sm:mx-2 bg-gray-600 rounded hover:bg-gray-500 disabled:opacity-50 text-[12px] sm:text-[14px]"
                             disabled
                         >
                             Previous
                         </button>
                         <button
-                            className="px-4 py-2 bg-gray-600 rounded hover:bg-gray-500 disabled:opacity-50"
+                            className="px-2 sm:px-4 py-1 sm:py-2 bg-gray-600 rounded hover:bg-gray-500 disabled:opacity-50 text-[12px] sm:text-[14px]"
                             disabled
                         >
                             Next
@@ -254,38 +259,48 @@ const HistoryComponent: React.FC = () => {
 
             {isModalOpen && selectedTransaction && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 modal-overlay"
+                    className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 modal-overlay p-3"
                     onClick={handleModalClick}
                 >
-                    <div className="bg-black rounded-lg w-full max-w-sm mx-4 shadow-lg overflow-hidden">
-                        <div className="p-4">
-                            <div className="flex justify-between items-center mb-3">
-                                <div className="text-gray-300 font-medium">Sent</div>
-                                <div className="text-white font-medium">
+                    <div className="bg-black rounded-lg w-full max-w-sm mx-auto shadow-lg overflow-hidden">
+                        <div className="p-3 sm:p-4">
+                            <div className="flex justify-between items-center mb-2 sm:mb-3">
+                                <div className="text-gray-300 font-medium text-[12px] sm:text-[14px]">Sent</div>
+                                <div className="text-white font-medium text-[12px] sm:text-[14px]">
                                     -{selectedTransaction.amount.toFixed(5)} {selectedTransaction.token}
                                 </div>
                             </div>
 
-                            <div className="flex justify-between items-center mb-3">
-                                <div className="text-gray-300 font-medium">Recipient</div>
-                                <div className="text-white font-medium">{selectedTransaction.recipient}</div>
+                            <div className="flex justify-between items-center mb-2 sm:mb-3">
+                                <div className="text-gray-300 font-medium text-[12px] sm:text-[14px]">Recipient</div>
+                                <div className="text-white font-medium text-[12px] sm:text-[14px] break-all">{selectedTransaction.recipient}</div>
                             </div>
 
-                            <div className="flex justify-between items-center mb-3">
-                                <div className="text-gray-300 font-medium">Memo</div>
-                                <div className="text-white font-medium">{selectedTransaction.memo}</div>
+                            <div className="flex justify-between items-center mb-2 sm:mb-3">
+                                <div className="text-gray-300 font-medium text-[12px] sm:text-[14px]">Memo</div>
+                                <div className="text-white font-medium text-[12px] sm:text-[14px]">{selectedTransaction.memo}</div>
                             </div>
 
-                            <div className="flex justify-between items-center mb-3">
-                                <div className="text-gray-300 font-medium">Transaction Fee</div>
-                                <div className="text-white font-medium">
+                            <div className="flex justify-between items-center mb-2 sm:mb-3">
+                                <div className="text-gray-300 font-medium text-[12px] sm:text-[14px]">Transaction Fee</div>
+                                <div className="text-white font-medium text-[12px] sm:text-[14px]">
                                     {selectedTransaction.txFee} {selectedTransaction.token}
                                 </div>
                             </div>
 
                             <div className="flex justify-between items-center mb-2">
-                                <div className="text-gray-300 font-medium">Date</div>
-                                <div className="text-white font-medium">{selectedTransaction.date}</div>
+                                <div className="text-gray-300 font-medium text-[12px] sm:text-[14px]">Date</div>
+                                <div className="text-white font-medium text-[12px] sm:text-[14px]">{selectedTransaction.date}</div>
+                            </div>
+                            
+                            {/* Close button for mobile */}
+                            <div className="text-center mt-3 sm:hidden">
+                                <button 
+                                    className="px-4 py-1 bg-gray-700 rounded text-white text-[12px]"
+                                    onClick={closeModal}
+                                >
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
