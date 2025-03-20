@@ -27,7 +27,7 @@ const Hero = () => {
       <div className="space-y-4 mb-4">
         <div className="flex justify-center items-center relative">
           <div className="absolute space-x-4 md:space-x-8 md:top-40">
-            <Link href="/distribute" className="z-10">
+            <Link href="/#" className="z-10">
               <Button className="bg-purple">Get Started</Button>
             </Link>
 
