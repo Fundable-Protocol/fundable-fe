@@ -1,5 +1,5 @@
 const DistributeComponent = () => {
-  return <div>DistributeComponent</div>;
+  return <main>DistributeComponent</main>;
 };
 
 export default DistributeComponent;

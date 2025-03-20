@@ -27,7 +27,7 @@ import "@fontsource/itim";
 
 export function SideBar() {
   const [darkMode, setDarkMode] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
 
   const menuItems = [
