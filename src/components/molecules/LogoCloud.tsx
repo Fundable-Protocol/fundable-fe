@@ -1,10 +1,10 @@
 import Image from "next/image";
-import IconArgent from '../../../public/imgs/IconArgent.svg'
-import IconStarknet from '../../../public/imgs/IconStarknet.svg'
-import IconMetamask from '../../../public/imgs/IconMetamask.svg'
-import IconBravaas from '../../../public/imgs/IconBravaas.svg'
-import IconOkk from '../../../public/imgs/IconOkk.svg'
 
+import IconOkk from "../../../public/marqueLogos/okxLogo.png";
+import IconArgent from "../../../public/marqueLogos/argentX.png";
+import IconBravaas from "../../../public/marqueLogos/bravoos.png";
+import IconStarknet from "../../../public/marqueLogos/starknet.png";
+import IconMetamask from "../../../public/marqueLogos/metamask.png";
 
 export default function LogoCloud() {
   const logos = [
@@ -31,14 +31,17 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className="bg-transparent pb-24 sm:pb-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-4 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-5 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          {logos.map((logo, index) => (
-            <Image key={index} src={logo.image} alt={logo.alt} width={152} height={48} />
-          ))}
-        </div>
-      </div>
+    <div className=" pb-24 sm:pb-28 z-10 flex justify-between">
+      {logos.map((logo, index) => (
+        <Image
+          key={index}
+          src={logo.image}
+          alt={logo.alt}
+          width={150}
+          height={80}
+          priority
+        />
+      ))}
     </div>
   );
 }
