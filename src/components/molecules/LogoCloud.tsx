@@ -1,14 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import { Fragment } from "react";
-import { motion } from "framer-motion";
 
-import IconOkk from "../../../public/imgs/IconOkk.svg";
-import IconArgent from "../../../public/imgs/IconArgent.svg";
-import IconBravaas from "../../../public/imgs/IconBravaas.svg";
-import IconStarknet from "../../../public/imgs/IconStarknet.svg";
-import IconMetamask from "../../../public/imgs/IconMetamask.svg";
+import IconOkk from "../../../public/marqueLogos/okxLogo.png";
+import IconArgent from "../../../public/marqueLogos/argentX.png";
+import IconBravaas from "../../../public/marqueLogos/bravoos.png";
+import IconStarknet from "../../../public/marqueLogos/starknet.png";
+import IconMetamask from "../../../public/marqueLogos/metamask.png";
 
 export default function LogoCloud() {
   const logos = [
@@ -35,28 +31,17 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className="md:-mt-16 pb-24 sm:pb-28 z-10">
-      <div className="flex overflow-hidden">
-        <motion.div
-          animate={{
-            x: "-50%",
-          }}
-          transition={{
-            duration: 25,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          className="flex flex-none gap-12 md:gap-24"
-        >
-          {Array.from({ length: 2 }).map((_, i) => (
-            <Fragment key={i}>
-              {logos.map((logo, index) => (
-                <Image key={index} src={logo.image} alt={logo.alt} priority />
-              ))}
-            </Fragment>
-          ))}
-        </motion.div>
-      </div>
+    <div className=" pb-24 sm:pb-28 z-10 flex justify-between">
+      {logos.map((logo, index) => (
+        <Image
+          key={index}
+          src={logo.image}
+          alt={logo.alt}
+          width={150}
+          height={80}
+          priority
+        />
+      ))}
     </div>
   );
 }
