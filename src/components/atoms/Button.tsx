@@ -13,7 +13,7 @@ interface ButtonProps {
 const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
   return (
     <>
-      <Link href="/distribute">
+      <Link href="/dashboard">
         <Button variant="gradient" className={className}>
           Launch App
         </Button>

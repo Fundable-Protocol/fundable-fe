@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/organisms/Navbar";
-
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -31,7 +29,6 @@ export default function RootLayout({
       <body
         className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black flex flex-col h-dvh overflow-hidden`}
       >
-        <Navbar />
         <main className="flex-1 flex flex-col overflow-auto">{children}</main>
       </body>
     </html>

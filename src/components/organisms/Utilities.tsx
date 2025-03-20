@@ -33,7 +33,7 @@ const utilities = [
 
 function Utilities() {
   return (
-    <main className="text-white p-4 md:p-8 lg:p-12 relative -mt-0">
+    <main className="text-white p-4 md:p-8 lg:p-12 relative -mt-0 ">
       <div className="max-w-7xl mx-auto">
         <div className="w-full flex flex-row md:justify-between justify-center items-center gap-8">
           <p className="font-syne font-bold text-[2rem] md:text-[2.5rem] lg:text-[3rem] text-center lg:text-left">
@@ -41,8 +41,8 @@ function Utilities() {
             crypto currencies
           </p>
           <p className="font-normal text-[1rem] text-center lg:text-right text-utility-description max-w-[600px] md:block hidden">
-            Unlock the full potential of decentralized funding with Fundable\'s{" "}
-            <br className="hidden lg:block" />
+            Unlock the full potential of decentralized funding with
+            Fundable&#39;s <br className="hidden lg:block" />
             efficient, transparent, and community-driven solutions.
           </p>
         </div>
@@ -60,8 +60,8 @@ function Utilities() {
           </div>
 
           <p className="font-normal text-sm md:text-[1rem] text-center md:text-right text-utility-description max-w-[600px] block md:hidden">
-            Unlock the full potential of decentralized funding with Fundable\'s{" "}
-            <br className="hidden lg:block" />
+            Unlock the full potential of decentralized funding with
+            Fundable&#39;s <br className="hidden lg:block" />
             efficient, transparent, and community-driven solutions.
           </p>
 
