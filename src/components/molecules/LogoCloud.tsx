@@ -36,47 +36,22 @@ export default function LogoCloud() {
   return (
     <div className="overflow-hidden whitespace-nowrap pb-24 sm:pb-28 z-10 w-full ">
       <motion.div
-      className="flex justify-between items-center w-full"
-      animate={{ x: [0, -1500]  }}
-      transition={{ repeat: Infinity, duration: 20, ease: "linear", repeatType: "loop"  }}
+      className="flex items-center w-max"
+      animate={{ x: ["0%", "-100%"]  }}
+      transition={{ repeat: Infinity, duration: 20, ease: "linear"  }}
       >
-        {logos.map((logo, index) => (
-          <Image
-            key={index}
-            src={logo.image}
-            alt={logo.alt}
-            width={150}
-            height={80}
-            priority
-            className="mx-8"
-          />
-        ))}
 
-         {logos.map((logo, index) => (
-          <Image
-            key={index}
-            src={logo.image}
-            alt={logo.alt}
-            width={150}
-            height={80}
-            priority
-            className="mx-8"
-          />
-        ))}
-
-      
-        {logos.map((logo, index) => (
-          <Image
-            key={index}
-            src={logo.image}
-            alt={logo.alt}
-            width={150}
-            height={80}
-            priority
-            className="mx-8"
-          />
-        ))}
- 
+      {[...logos, ...logos].map((logo, index) => (
+        <Image
+          key={index}
+          src={logo.image}
+          alt={logo.alt}
+          width={150}
+          height={80}
+          priority
+          className="mx-8"
+        />
+      ))}
       </motion.div>
       
     </div>
