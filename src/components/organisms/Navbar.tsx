@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center py-4 text-sm font-bold text-txt container">
+    <nav className="flex justify-between gap-x-4 items-center py-4 text-sm font-bold text-txt container">
       {/* Logo */}
       <Link href="/" className="relative w-28 h-5">
         <Image
@@ -31,8 +31,8 @@ const Navbar = () => {
         />
       </Link>
 
-               {/* Connect Wallet Button */}
-               <div className="sm:hidden block">
+      {/* Connect Wallet Button */}
+      <div className="md:hidden block">
         <ConnectWalletButton />
       </div>
 
@@ -67,8 +67,6 @@ const Navbar = () => {
         </svg>
       </button>
 
-
-
       {/* Nav Links */}
       <div
         className={`${
@@ -86,8 +84,8 @@ const Navbar = () => {
         ))}
       </div>
 
-    {/* Connect Wallet Button */}
-    <div className="hidden sm:block">
+      {/* Connect Wallet Button */}
+      <div className="hidden md:block">
         <ConnectWalletButton />
       </div>
     </nav>
