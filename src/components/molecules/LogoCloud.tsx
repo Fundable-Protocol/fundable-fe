@@ -58,7 +58,7 @@ export default function LogoCloud() {
             src={logo.image}
             alt={logo.alt}
             width={150}
-            height={100}
+            height={80}
             priority
             className="mx-8"
           />
