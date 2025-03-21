@@ -31,6 +31,9 @@ const Navbar = () => {
         />
       </Link>
 
+      {/* Spacer div that pushes hamburger to the right on mobile/tablet */}
+      <div className="flex-grow sm:hidden"></div>
+
       {/* Hamburger Menu for Mobile (Hidden when overlay is open) */}
       {!isMenuOpen && (
         <button
@@ -68,8 +71,8 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Connect Wallet Button for Desktop */}
-      <div className="hidden sm:block">
+      {/* Connect Wallet Button for Desktop Only */}
+      <div className="hidden md:block">
         <ConnectWalletButton />
       </div>
 
