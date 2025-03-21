@@ -31,52 +31,36 @@ const Navbar = () => {
         />
       </Link>
 
-      {/* Connect Wallet Button */}
-      <div className="md:hidden block">
-        <ConnectWalletButton />
-      </div>
-
-      {/* Hamburger Menu for Mobile */}
-      <button
-        className="sm:hidden focus:outline-none"
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-      >
-        <svg
-          className="w-6 h-6 transition-transform duration-300 ease-in-out"
-          fill="#ffffff"
-          stroke="#ffffff"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+      {/* Hamburger Menu for Mobile (Hidden when overlay is open) */}
+      {!isMenuOpen && (
+        <button
+          className="sm:hidden focus:outline-none"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
-          {isMenuOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          ) : (
+          <svg
+            className="w-6 h-6 transition-transform duration-300 ease-in-out"
+            fill="#ffffff"
+            stroke="#ffffff"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
               d="M4 6h16M4 12h16m-7 6h7"
             />
-          )}
-        </svg>
-      </button>
+          </svg>
+        </button>
+      )}
 
-      {/* Nav Links */}
-      <div
-        className={`${
-          isMenuOpen ? "block" : "hidden"
-        } sm:flex sm:items-center sm:gap-x-16 absolute sm:static top-16 left-0 w-full sm:w-auto bg-[#000000d3] text-[#ffffff] sm:bg-transparent p-4 sm:p-0 transition-all duration-300 ease-in-out`}
-      >
+      {/* Nav Links for Desktop */}
+      <div className="hidden sm:flex sm:items-center sm:gap-x-16">
         {links.map((link) => (
           <Link
             href={link.url}
-            className="block sm:inline-block text-white hover:text-primary py-2 sm:py-0"
+            className="text-white hover:text-primary py-2 sm:py-0"
             key={link.title}
           >
             {link.title}
@@ -84,9 +68,57 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Connect Wallet Button */}
-      <div className="hidden md:block">
+      {/* Connect Wallet Button for Desktop */}
+      <div className="hidden sm:block">
         <ConnectWalletButton />
+      </div>
+
+      {/* Overlay for Mobile */}
+      <div
+        className={`fixed inset-0 bg-[#000000d3] z-50 sm:hidden transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close Button at the Top-Right */}
+        <div className="absolute top-4 right-4">
+          <button
+            className="focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="#ffffff"
+              stroke="#ffffff"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Connect Wallet Button in Overlay */}
+        <div className="flex flex-col items-center justify-center h-full space-y-6">
+          <ConnectWalletButton />
+
+          {/* Nav Links in Overlay */}
+          {links.map((link) => (
+            <Link
+              href={link.url}
+              className="block text-white hover:text-primary py-2"
+              key={link.title}
+              onClick={toggleMenu}
+            >
+              {link.title}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );
