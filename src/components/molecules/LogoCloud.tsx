@@ -1,10 +1,13 @@
-import Image from "next/image";
+"use client"
 
+import Image from "next/image";
 import IconOkk from "../../../public/marqueLogos/okxLogo.png";
 import IconArgent from "../../../public/marqueLogos/argentX.png";
 import IconBravaas from "../../../public/marqueLogos/bravoos.png";
 import IconStarknet from "../../../public/marqueLogos/starknet.png";
 import IconMetamask from "../../../public/marqueLogos/metamask.png";
+
+import { motion } from "framer-motion";
 
 export default function LogoCloud() {
   const logos = [
@@ -31,17 +34,51 @@ export default function LogoCloud() {
   ];
 
   return (
-    <div className=" pb-24 sm:pb-28 z-10 flex justify-between">
-      {logos.map((logo, index) => (
-        <Image
-          key={index}
-          src={logo.image}
-          alt={logo.alt}
-          width={150}
-          height={80}
-          priority
-        />
-      ))}
+    <div className="overflow-hidden whitespace-nowrap pb-24 sm:pb-28 z-10 w-full ">
+      <motion.div
+      className="flex justify-between items-center w-full"
+      animate={{ x: [0, -1500]  }}
+      transition={{ repeat: Infinity, duration: 20, ease: "linear", repeatType: "loop"  }}
+      >
+        {logos.map((logo, index) => (
+          <Image
+            key={index}
+            src={logo.image}
+            alt={logo.alt}
+            width={150}
+            height={80}
+            priority
+            className="mx-8"
+          />
+        ))}
+
+         {logos.map((logo, index) => (
+          <Image
+            key={index}
+            src={logo.image}
+            alt={logo.alt}
+            width={150}
+            height={100}
+            priority
+            className="mx-8"
+          />
+        ))}
+
+      
+        {logos.map((logo, index) => (
+          <Image
+            key={index}
+            src={logo.image}
+            alt={logo.alt}
+            width={150}
+            height={80}
+            priority
+            className="mx-8"
+          />
+        ))}
+ 
+      </motion.div>
+      
     </div>
   );
 }
