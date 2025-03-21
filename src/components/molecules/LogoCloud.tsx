@@ -38,7 +38,7 @@ export default function LogoCloud() {
       <motion.div
       className="flex items-center w-max"
       animate={{ x: ["0%", "-100%"]  }}
-      transition={{ repeat: Infinity, duration: 20, ease: "linear"  }}
+      transition={{ repeat: Infinity, duration: 50, ease: "linear"  }}
       >
 
       {[...logos, ...logos].map((logo, index) => (
