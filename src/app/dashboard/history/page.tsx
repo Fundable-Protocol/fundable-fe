@@ -1,4 +1,4 @@
-import HistoryPage from "@/pages/Dashboard/history";
+import HistoryPage from "@/pages/Dashboard/History";
 
 const historyPage = () => {
   return <HistoryPage />;

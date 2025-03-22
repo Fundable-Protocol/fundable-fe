@@ -10,7 +10,8 @@ const Dialog = ({ children }: { children: ReactNode }) => {
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const showDialogParams = searchParams.get("showDialog");
+  const showDialogParams = searchParams?.get("showDialog") || "false";
+
   const showDialog = showDialogParams === "true";
 
   const closeDialog = () => {

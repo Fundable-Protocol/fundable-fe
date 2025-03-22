@@ -1,13 +1,8 @@
 import { SideBar } from "@/components/organisms/SideBar";
 import SidebarNav from "@/components/molecules/SidebarNav";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { Syne } from "next/font/google";
 
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-syne",
-});
+
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

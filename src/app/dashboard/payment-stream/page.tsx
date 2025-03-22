@@ -1,4 +1,4 @@
-import PaymentStreamComponent from "@/pages/Dashboard/payment-stream";
+import PaymentStreamComponent from "@/pages/Dashboard/PaymentStream";
 
 const PaymentStreamPage = () => {
   return <PaymentStreamComponent />;
