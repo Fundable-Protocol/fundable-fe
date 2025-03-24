@@ -1,5 +1,7 @@
+import DistributeComponent from "@/pages/Dashboard/distribute";
+
 const DistributePage = () => {
-  return <div>DistributePage</div>;
+  return <DistributeComponent/>;
 };
 
 export default DistributePage;
