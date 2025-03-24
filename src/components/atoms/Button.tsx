@@ -1,23 +1,46 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { Button } from "../ui/button";
-import Link from "next/link";
-
+import { useAccount, useConnect } from "@starknet-react/core";
+import { useRouter } from "next/navigation";
+import { setWalletState } from "@/store/wallet";
+import { toast } from 'react-toastify';
 interface ButtonProps {
   onClick?: () => void;
   className?: string;
 }
 
 const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
+  const { connectors, connect, isSuccess } = useConnect();
+  const { address, account } = useAccount();
+  const route = useRouter()
+  const handleConnect = async () => {
+    try {
+      if (connectors.length > 0) {
+        connect({ connector: connectors[0] });
+      } else {
+        console.error("No connectors available");
+        toast.warning("No wallet connectors found. Please make sure Argent or Braavos is installed.");
+      }
+    } catch (error) {
+      console.error("Wallet Connection Failed:", error);
+      toast.error("Failed to connect wallet. Try again.");
+    }
+  };
+
+  useEffect(() => {
+    if (isSuccess && address && account) {
+      route.push("/dashboard")
+      setWalletState(address, account, true)
+    }
+  }, [isSuccess, address, account])
   return (
     <>
-      <Link href="/dashboard">
-        <Button variant="gradient" className={className}>
-          Launch App
-        </Button>
-      </Link>
+      <Button onClick={() => handleConnect()} variant="gradient" className={className}>
+        Launch App
+      </Button>
     </>
   );
 };
