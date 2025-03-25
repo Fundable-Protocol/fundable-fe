@@ -31,7 +31,7 @@ import { toast } from "react-toastify";
 
 export function SideBar() {
   const [darkMode, setDarkMode] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
   const route = useRouter()
   const { disconnect, isSuccess } = useDisconnect()
@@ -64,10 +64,10 @@ export function SideBar() {
 
   useEffect(() => {
     if (isSuccess) {
-      disconnectWallet()
       route.push("/")
+      disconnectWallet()
     }
-  }, [isSuccess])
+  }, [isSuccess,route])
 
   return (
     <>

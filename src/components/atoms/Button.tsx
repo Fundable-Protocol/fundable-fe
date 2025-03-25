@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useEffect } from "react";
-
+import { StarknetkitConnector, useStarknetkitConnectModal } from "starknetkit";
 import { Button } from "../ui/button";
 import { useAccount, useConnect } from "@starknet-react/core";
 import { useRouter } from "next/navigation";
@@ -14,12 +14,18 @@ interface ButtonProps {
 
 const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
   const { connectors, connect, isSuccess } = useConnect();
+  const { starknetkitConnectModal } = useStarknetkitConnectModal({
+    connectors: connectors as unknown as StarknetkitConnector[],
+  });
+
   const { address, account } = useAccount();
   const route = useRouter()
   const handleConnect = async () => {
+
+    const { connector } = await starknetkitConnectModal()
     try {
-      if (connectors.length > 0) {
-        connect({ connector: connectors[0] });
+      if (connector) {
+        await connect({ connector })
       } else {
         console.error("No connectors available");
         toast.warning("No wallet connectors found. Please make sure Argent or Braavos is installed.");
@@ -28,6 +34,9 @@ const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
       console.error("Wallet Connection Failed:", error);
       toast.error("Failed to connect wallet. Try again.");
     }
+
+
+
   };
 
   useEffect(() => {
@@ -35,7 +44,7 @@ const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
       route.push("/dashboard")
       setWalletState(address, account, true)
     }
-  }, [isSuccess, address, account])
+  }, [isSuccess, address, account, route])
   return (
     <>
       <Button onClick={() => handleConnect()} variant="gradient" className={className}>

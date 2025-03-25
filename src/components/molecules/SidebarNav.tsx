@@ -3,8 +3,16 @@ import { Bell, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import walletStore from "@/store/wallet";
+import { useState, useEffect } from "react";
+
 const SidebarNav = () => {
-  const { address } = walletStore.use()
+  const { address } = walletStore.use();
+  const [clientAddress, setClientAddress] = useState<string | null>(null);
+
+  useEffect(() => {
+    setClientAddress(address);
+  }, [address]);
+
   return (
     <header className="w-[83vw] h-16 bg-black text-white flex items-center justify-between px-4 md:px-6 shadow-md z-50">
       <div className="h-full flex items-center gap-4">
@@ -28,7 +36,9 @@ const SidebarNav = () => {
             height={24}
             className="rounded-full"
           />
-          <span className=" truncate text-ellipsis w-32" >{address}</span>
+          <span className="truncate text-ellipsis w-32">
+            {clientAddress ?? "Loading..."}
+          </span>
           <ChevronDown className="w-4 h-4" />
         </Button>
       </div>

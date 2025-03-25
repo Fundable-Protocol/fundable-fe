@@ -5,8 +5,8 @@ import { sepolia, mainnet } from "@starknet-react/chains";
 import {
     StarknetConfig,
     publicProvider,
-    argent,
-    braavos,
+    // argent,
+    // braavos,
     useInjectedConnectors,
     voyager,
 
@@ -14,14 +14,13 @@ import {
 
 const WalletProvider = ({ children }: { children: React.ReactNode }) => {
     const { connectors } = useInjectedConnectors({
-        recommended: [
-            argent(),
-            braavos(),
-        ],
+        // recommended: [
+        //     argent(),
+        //     braavos(),
+        // ],
         order: "random"
     });
 
-    console.log("loaded")
     return (
         <StarknetConfig
             chains={[mainnet, sepolia]}
