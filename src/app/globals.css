@@ -20,6 +20,33 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.scroller {
+  animation: scroll var(--duration, 25s) linear infinite;
+  animation-play-state: var(--play-state, running);
+  width: max-content;
+}
+
+.logos-slide {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Move exactly half the width for seamless loop */
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -107,5 +134,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
