@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-
+import WalletProvider from "@/providers/wallet-provider";
+import { Slide, ToastContainer } from 'react-toastify';
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -25,12 +26,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en">
       <body
         className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black flex flex-col h-dvh overflow-hidden`}
       >
-        <main className="flex-1 flex flex-col overflow-auto">{children}</main>
+        <main className="flex-1 flex flex-col overflow-auto">
+          <WalletProvider>
+            {children}
+            <ToastContainer position="bottom-right" theme="dark" hideProgressBar transition={Slide} />
+          </WalletProvider>
+        </main>
       </body>
     </html>
+
+
   );
 }

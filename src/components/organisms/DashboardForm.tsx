@@ -14,7 +14,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { AddressTable } from "@/components/organisms/AddressTable";
-import { Upload, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import UploadIcon from "@/svg/UploadIcon";
 
@@ -30,7 +30,7 @@ export function DistributionForm() {
     { address: "Address", amount: "Amount" },
   ]);
   const [isDragging, setIsDragging] = useState(false);
-  const [fileName, setFileName] = useState<string | null>(null);
+  const [, setFileName] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dropZoneRef = useRef<HTMLDivElement>(null);
 
@@ -155,11 +155,10 @@ export function DistributionForm() {
                   <div className="flex items-center gap-2">
                     <Label
                       htmlFor="equal"
-                      className={`cursor-pointer text-sm ${
-                        distributionType === "equal"
+                      className={`cursor-pointer text-sm ${distributionType === "equal"
                           ? "text-white"
                           : "text-gray-400"
-                      }`}
+                        }`}
                     >
                       Equal
                     </Label>
@@ -173,11 +172,10 @@ export function DistributionForm() {
                     />
                     <Label
                       htmlFor="weighted"
-                      className={`cursor-pointer text-sm ${
-                        distributionType === "weighted"
+                      className={`cursor-pointer text-sm ${distributionType === "weighted"
                           ? "text-white"
                           : "text-gray-400"
-                      }`}
+                        }`}
                     >
                       Weighted
                     </Label>
