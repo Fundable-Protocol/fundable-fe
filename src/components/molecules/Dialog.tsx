@@ -10,7 +10,8 @@ const Dialog = ({ children }: { children: ReactNode }) => {
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-  const showDialogParams = searchParams.get("showDialog");
+  const showDialogParams = searchParams ? searchParams.get("showDialog") : null;
+
   const showDialog = showDialogParams === "true";
 
   const closeDialog = () => {
@@ -19,26 +20,26 @@ const Dialog = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const dialog = dialogRef.current;
-  
+
     const closeDialog = () => {
       router.replace(window.location.pathname);
     };
-  
+
     if (showDialog) {
       dialog?.showModal();
       document.body.style.overflow = "hidden";
-  
+
       dialog?.addEventListener("close", closeDialog);
     } else {
       dialog?.close();
       document.body.style.overflow = "";
     }
-  
+
     return () => {
       dialog?.removeEventListener("close", closeDialog);
       document.body.style.overflow = "";
     };
-  }, [showDialog, router]); 
+  }, [showDialog, router]);
 
   return (
     <dialog ref={dialogRef} className="relative backdrop:transparent w-full">

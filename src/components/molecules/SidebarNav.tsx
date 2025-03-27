@@ -1,8 +1,18 @@
+"use client"
 import { Bell, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import walletStore from "@/store/wallet";
+import { useState, useEffect } from "react";
 
-const SidebarNav = async () => {
+const SidebarNav = () => {
+  const { address } = walletStore.use();
+  const [clientAddress, setClientAddress] = useState<string | null>(null);
+
+  useEffect(() => {
+    setClientAddress(address);
+  }, [address]);
+
   return (
     <header className="w-[83vw] h-16 bg-black text-white flex items-center justify-between px-4 md:px-6 shadow-md z-50">
       <div className="h-full flex items-center gap-4">
@@ -26,7 +36,9 @@ const SidebarNav = async () => {
             height={24}
             className="rounded-full"
           />
-          <span>0x097ad...0fdb7</span>
+          <span className="truncate text-ellipsis w-32">
+            {clientAddress ?? "Loading..."}
+          </span>
           <ChevronDown className="w-4 h-4" />
         </Button>
       </div>
