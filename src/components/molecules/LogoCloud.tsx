@@ -8,7 +8,7 @@ import IconArgent from "../../../public/marqueLogos/argentX.png"
 import IconBravaas from "../../../public/marqueLogos/bravoos.png"
 import IconStarknet from "../../../public/marqueLogos/starknet.png"
 import IconMetamask from "../../../public/marqueLogos/metamask.png"
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect } from "react"
 
 export default function LogoCloud() {
   const logos = [
@@ -35,7 +35,7 @@ export default function LogoCloud() {
   ]
 
   // Create two sets of logos for a seamless loop
-  const [isPaused, setIsPaused] = useState(false)
+  // const [isPaused, setIsPaused] = useState(false)
   const scrollerRef = useRef<HTMLDivElement>(null)
 
   // Use a more reliable approach with CSS variables for animation control
@@ -51,14 +51,12 @@ export default function LogoCloud() {
   return (
     <div
       className="overflow-hidden whitespace-nowrap pb-24 sm:pb-28 z-10 w-full relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      style={
-        {
-          // Apply the pause state directly with inline styles to prevent jumping
-          "--play-state": isPaused ? "paused" : "running",
-        } as React.CSSProperties
-      }
+      // style={
+      //   {
+      //     // Apply the pause state directly with inline styles to prevent jumping
+      //     "--play-state": isPaused ? "paused" : "running",
+      //   } as React.CSSProperties
+      // }
     >
       <div ref={scrollerRef} className="scroller flex items-center">
         <div className="logos-slide flex items-center">
