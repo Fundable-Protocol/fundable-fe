@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -24,12 +24,18 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import "@fontsource/itim";
+import { useDisconnect } from "@starknet-react/core";
+import { useRouter } from "next/navigation";
+import walletStore, { disconnectWallet } from "@/store/wallet";
+import { toast } from "react-toastify";
 
 export function SideBar() {
   const [darkMode, setDarkMode] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
-
+  const route = useRouter()
+  const { disconnect, isSuccess } = useDisconnect()
+  const { isConnected } = walletStore.use()
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard" },
     { icon: GraphIcon, label: "Distribution" },
@@ -40,15 +46,37 @@ export function SideBar() {
     { icon: Wallet, label: "Help" },
   ];
 
+  const handledisConnect = async () => {
+    try {
+      if (isConnected) {
+        disconnect()
+
+      } else {
+        console.error("No wallet is connected");
+        toast.warning("No wallet is connected. Please make sure you have a connected wallet.");
+      }
+    } catch (error) {
+      console.error("Wallet Disonnection Failed:", error);
+      toast.error("Failed to disconnect wallet. Try again.");
+    }
+  };
+
+
+  useEffect(() => {
+    if (isSuccess) {
+      route.push("/")
+      disconnectWallet()
+    }
+  }, [isSuccess,route])
+
   return (
     <>
       <div className="md:hidden flex h-16 items-center">
         <SidebarTrigger className="text-white hover:bg-purple" />
       </div>
       <Sidebar
-        className={`dark text-white w-64 h-full fixed left-0 top-0 z-50 flex flex-col justify-between transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0`}
+        className={`dark text-white w-64 h-full fixed left-0 top-0 z-50 flex flex-col justify-between transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0`}
       >
         <SidebarHeader className="flex items-center justify-between py-6 px-4">
           <div className="flex items-center space-x-2">
@@ -63,13 +91,13 @@ export function SideBar() {
           <SidebarGroup>
             {menuItems.map(({ icon: Icon, label }) => (
               <Button
+
                 key={label}
                 variant="ghost"
-                className={`w-full justify-start px-4 py-3 rounded-md flex items-center gap-3 transition-all ${
-                  activeItem === label
-                    ? "bg-purple text-white"
-                    : "hover:bg-purple"
-                }`}
+                className={`w-full justify-start px-4 py-3 rounded-md flex items-center gap-3 transition-all ${activeItem === label
+                  ? "bg-purple text-white"
+                  : "hover:bg-purple"
+                  }`}
                 onClick={() => setActiveItem(label)}
               >
                 <div className="relative flex items-center justify-center w-8 h-8">
@@ -86,6 +114,7 @@ export function SideBar() {
 
         <SidebarFooter className="p-4 flex flex-col gap-4">
           <Button
+            onClick={handledisConnect}
             variant="ghost"
             className="w-full justify-start px-4 py-3 hover:bg-purple hover:rounded-md flex items-center gap-3 transition-all"
           >
@@ -99,9 +128,8 @@ export function SideBar() {
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full hover:bg-purple ${
-                !darkMode ? "bg-purple text-white" : "text-gray-400"
-              }`}
+              className={`rounded-full hover:bg-purple ${!darkMode ? "bg-purple text-white" : "text-gray-400"
+                }`}
               onClick={() => setDarkMode(false)}
             >
               <Sun className="w-5 h-5" />
@@ -109,9 +137,8 @@ export function SideBar() {
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full hover:bg-purple ${
-                darkMode ? "bg-purple text-white" : "text-gray-400"
-              }`}
+              className={`rounded-full hover:bg-purple ${darkMode ? "bg-purple text-white" : "text-gray-400"
+                }`}
               onClick={() => setDarkMode(true)}
             >
               <Moon className="w-5 h-5" />
