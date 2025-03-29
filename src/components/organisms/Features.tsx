@@ -4,14 +4,14 @@ import Image from "next/image";
 
 export default function Features() {
   return (
-    <section className="min-h-screen text-white">
+    <section className="min-h-screen text-black dark:text-white">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-center lg:text-left font-syne">
+          <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-center  dTK lg:text-left font-syne">
             Decentralized <br /> Funding Made Easy
           </h1>
-          <p className="text-sm text-[#CCCCCC] text-center md:text-right md:text-lg">
+          <p className="text-sm text-gray-500 dark:text-[#CCCCCC] text-center md:text-right md:text-lg">
             Fundable: Decentralized funding for retroactive, quadratic,
             <br className="hidden md:block" />
             and giveaway distributions, streamlining complex

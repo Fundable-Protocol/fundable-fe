@@ -3,6 +3,7 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import WalletProvider from "@/providers/wallet-provider";
 import { Slide, ToastContainer } from 'react-toastify';
+import ThemeProvider from "@/providers/theme-provider";
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -29,13 +30,16 @@ export default function RootLayout({
 
     <html lang="en">
       <body
-        className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-black flex flex-col h-dvh overflow-hidden`}
+        className={`${bricolageGrotesque.variable} ${inter.className} antialiased bg-slate-100 dark:bg-black flex flex-col h-dvh overflow-hidden`}
       >
         <main className="flex-1 flex flex-col overflow-auto">
-          <WalletProvider>
-            {children}
-            <ToastContainer position="bottom-right" theme="dark" hideProgressBar transition={Slide} />
-          </WalletProvider>
+          <ThemeProvider>
+            <WalletProvider>
+              {children}
+              <ToastContainer position="bottom-right" theme="dark" hideProgressBar transition={Slide} />
+            </WalletProvider>
+          </ThemeProvider>
+
         </main>
       </body>
     </html>
