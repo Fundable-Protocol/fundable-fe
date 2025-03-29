@@ -28,9 +28,11 @@ import { useDisconnect } from "@starknet-react/core";
 import { useRouter } from "next/navigation";
 import walletStore, { disconnectWallet } from "@/store/wallet";
 import { toast } from "react-toastify";
+import { themeStore, toggleTheme } from "@/store/theme";
 
 export function SideBar() {
-  const [darkMode, setDarkMode] = useState(true);
+  const { theme } = themeStore.use();
+  const darkMode = theme === "dark";
   const [isOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
   const route = useRouter()
@@ -67,18 +69,19 @@ export function SideBar() {
       route.push("/")
       disconnectWallet()
     }
-  }, [isSuccess,route])
+  }, [isSuccess, route])
 
   return (
     <>
       <div className="md:hidden flex h-16 items-center">
-        <SidebarTrigger className="text-white hover:bg-purple" />
+        <SidebarTrigger className=" text-black dark:text-white hover:dark:bg-purple" />
       </div>
       <Sidebar
-        className={`dark text-white w-64 h-full fixed left-0 top-0 z-50 flex flex-col justify-between transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
+
+        className={` text-black dark:text-white w-64 h-full fixed left-0 top-0 z-50 flex flex-col justify-between transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0`}
       >
-        <SidebarHeader className="flex items-center justify-between py-6 px-4">
+        <SidebarHeader className="flex items-center justify-between py-6 px-4 bg-slate-100 dark:bg-sidebar ">
           <div className="flex items-center space-x-2">
             <Image src="/fundable-logo.svg" alt="Logo" width={40} height={40} />
             <span className="text-3xl font-bold text-purple font-[Itim]">
@@ -87,7 +90,7 @@ export function SideBar() {
           </div>
         </SidebarHeader>
 
-        <SidebarContent className="flex flex-col gap-1 px-4">
+        <SidebarContent className="flex flex-col gap-1 px-4 bg-slate-100 dark:bg-sidebar">
           <SidebarGroup>
             {menuItems.map(({ icon: Icon, label }) => (
               <Button
@@ -95,16 +98,16 @@ export function SideBar() {
                 key={label}
                 variant="ghost"
                 className={`w-full justify-start px-4 py-3 rounded-md flex items-center gap-3 transition-all ${activeItem === label
-                  ? "bg-purple text-white"
-                  : "hover:bg-purple"
+                  ? "bg-purple text-black dark:text-white"
+                  : "hover:bg-purple hover:text-white "
                   }`}
                 onClick={() => setActiveItem(label)}
               >
                 <div className="relative flex items-center justify-center w-8 h-8">
                   {activeItem === label && (
-                    <span className="absolute w-8 h-8 bg-[#151517] rounded-full opacity-100 transition-opacity" />
+                    <span className="absolute w-8 h-8 bg-gray-100 dark:bg-[#151517]  rounded-full opacity-100 transition-opacity" />
                   )}
-                  <Icon className="w-5 h-5 relative z-10" />
+                  <Icon className="w-5 h-5 relative z-10   " />
                 </div>
                 {label}
               </Button>
@@ -112,7 +115,7 @@ export function SideBar() {
           </SidebarGroup>
         </SidebarContent>
 
-        <SidebarFooter className="p-4 flex flex-col gap-4">
+        <SidebarFooter className="p-4 flex flex-col gap-4 bg-slate-100 dark:bg-sidebar">
           <Button
             onClick={handledisConnect}
             variant="ghost"
@@ -124,25 +127,25 @@ export function SideBar() {
             Logout
           </Button>
 
-          <div className="flex items-center justify-between p-2 bg-[#1a1a1a] rounded-full w-24">
+          <div className="flex items-center justify-between p-2 bg-white dark:bg-[#1a1a1a] shadow-md shadow-gray-300 dark:shadow-none rounded-full w-24">
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full hover:bg-purple ${!darkMode ? "bg-purple text-white" : "text-gray-400"
-                }`}
-              onClick={() => setDarkMode(false)}
+              className={`rounded-full hover:bg-purple ${!darkMode ? "bg-purple text-white" : "text-gray-400"}`}
+              onClick={() => toggleTheme(false)}
             >
               <Sun className="w-5 h-5" />
             </Button>
+
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full hover:bg-purple ${darkMode ? "bg-purple text-white" : "text-gray-400"
-                }`}
-              onClick={() => setDarkMode(true)}
+              className={`rounded-full hover:bg-purple ${darkMode ? "bg-purple text-white" : "text-gray-400"}`}
+              onClick={() => toggleTheme(true)}
             >
               <Moon className="w-5 h-5" />
             </Button>
+
           </div>
         </SidebarFooter>
       </Sidebar>

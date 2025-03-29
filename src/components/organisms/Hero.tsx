@@ -15,11 +15,11 @@ const Hero = () => {
     // max-w-5xl mx-auto
     <header className="w-full py-12 md:py-24">
       <div className="flex flex-col justify-center items-center space-y-4 text-center">
-        <h1 className="text-white text-4xl md:text-8xl font-bric font-bold font-syne text-center">
+        <h1 className=" text-black dark:text-white text-4xl md:text-8xl font-bric font-bold font-syne text-center">
           Refining automated <br /> payments in Web3
         </h1>
 
-        <p className="text-[#DADADA] max-w-xl mx-auto md:max-w-3xl md:text-xl ">
+        <p className=" text-gray-500 dark:text-[#DADADA] max-w-xl mx-auto md:max-w-3xl md:text-xl ">
           {heroText.text}
         </p>
       </div>
@@ -32,7 +32,7 @@ const Hero = () => {
             </Link>
 
             <Link href="#" className="z-10">
-              <Button variant="secondary" className="bg-gray_purple text-white">
+              <Button variant="secondary" className="bg-gray_purple hover:text-black hover:border hover:border-black text-white dark:hover:bg-white dark:hover:border-none ">
                 Discover More
               </Button>
             </Link>
@@ -40,7 +40,7 @@ const Hero = () => {
 
           <Image src={HeroImg} alt="fundable hero icon" priority />
 
-          <div className="absolute bg-black hidden md:block h:8 md:h-32 w-full bottom-0" />
+          <div className="absolute  bg-slate-100 dark:bg-black hidden md:block h:8 md:h-32 w-full bottom-0" />
         </div>
       </div>
 

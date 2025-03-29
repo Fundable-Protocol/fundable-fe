@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-full text-white flex items-stretch justify-evenly md:justify-between md:min-h-[245.78px] gap-3 px-3 py-3 ">
+    <footer className="w-full text-black dark:text-white flex items-stretch justify-evenly md:justify-between md:min-h-[245.78px] gap-3 px-3 py-3 ">
       <div className="  mx-auto flex items-center justify-center md:block  px-1 ">
         <Image
           priority

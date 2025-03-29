@@ -14,17 +14,17 @@ const SidebarNav = () => {
   }, [address]);
 
   return (
-    <header className="w-[83vw] h-16 bg-black text-white flex items-center justify-between px-4 md:px-6 shadow-md z-50">
+    <header className="w-[83vw] h-16 bg-slate-100 dark:bg-black text-white flex items-center justify-between px-4 md:px-6 shadow-md z-50">
       <div className="h-full flex items-center gap-4">
-        <h1 className="text-3xl md:text-3xl font-bold font-syne">Dashboard</h1>
+        <h1 className="text-3xl md:text-3xl font-bold font-syne text-black dark:text-white ">Dashboard</h1>
       </div>
 
       <div className="flex items-center space-x-4 md:space-x-6">
         <Button
           variant="ghost"
-          className="relative p-2 bg-[#1a1a1a] rounded-full hover:bg-[#2a2a2a] transition-colors duration-200"
+          className="relative p-2  bg-gray-200 dark:bg-[#1a1a1a] rounded-full hover:bg-gray-300 dark:hover:bg-[#2a2a2a] transition-colors duration-200"
         >
-          <Bell className="text-white w-6 h-6" />
+          <Bell className=" text-black dark:text-white w-6 h-6" />
           <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
         </Button>
 
