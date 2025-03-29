@@ -28,10 +28,21 @@ import { useDisconnect } from "@starknet-react/core";
 import { useRouter } from "next/navigation";
 import walletStore, { disconnectWallet } from "@/store/wallet";
 import { toast } from "react-toastify";
-import { themeStore, toggleTheme } from "@/store/theme";
+import { themeStore } from "@/store/theme";
+import { useTheme } from "next-themes";
+import { useEntity } from "simpler-state";
 
 export function SideBar() {
-  const { theme } = themeStore.use();
+  // const { theme } = themeStore.use();
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark"
+    // Update next‑themes
+    setTheme(newTheme)
+    // Update our simpler‑state store (automatically persisted to localStorage)
+    themeStore.set({ theme: newTheme })
+  }
   const darkMode = theme === "dark";
   const [isOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
@@ -132,7 +143,7 @@ export function SideBar() {
               variant="ghost"
               size="icon"
               className={`rounded-full hover:bg-purple ${!darkMode ? "bg-purple text-white" : "text-gray-400"}`}
-              onClick={() => toggleTheme(false)}
+              onClick={toggleTheme}
             >
               <Sun className="w-5 h-5" />
             </Button>
@@ -141,7 +152,7 @@ export function SideBar() {
               variant="ghost"
               size="icon"
               className={`rounded-full hover:bg-purple ${darkMode ? "bg-purple text-white" : "text-gray-400"}`}
-              onClick={() => toggleTheme(true)}
+              onClick={toggleTheme}
             >
               <Moon className="w-5 h-5" />
             </Button>
