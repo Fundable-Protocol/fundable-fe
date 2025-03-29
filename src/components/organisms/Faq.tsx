@@ -68,12 +68,12 @@ const Faq = () => {
 
   return (
     <section className="relative flex items-center justify-center w-full   px-3 py-[10%] my-5 ">
-      <div className="text-white z-[10000] w-full max-w-[1008px] mx-auto  flex flex-col items-center justify-center gap-8">
+      <div className="text-black dark:text-white z-[10000] w-full max-w-[1008px] mx-auto  flex flex-col items-center justify-center gap-8">
         <div className=" text-center  flex items-center justify-center flex-col">
-          <h1 className=" text-[36px] md:text-[42px] font-bold text-white leading-[47.88px] mb-2 font-syne ">
+          <h1 className=" text-[36px] md:text-[42px] font-bold text-black dark:text-white leading-[47.88px] mb-2 font-syne ">
             Frequently Asked Questions
           </h1>
-          <p className=" text-utility-titleP leading-[19.88px] font-medium text-[12.6px] md:w-[260px] w-[325px] ">
+          <p className=" text-gray-500 dark:text-utility-titleP leading-[19.88px] font-medium text-[12.6px] md:w-[260px] w-[325px] ">
             Get the answers you need to navigate our platform with confidence.
           </p>
         </div>
@@ -82,11 +82,10 @@ const Faq = () => {
           {buttonProps.map((buttonProp) => (
             <div
               key={buttonProp.id}
-              className={`bg-gradient-to-b from-utility-buttonGradient1 to-utility-buttonGradient2 p-[2px] rounded-[20.5px] ${
-                buttonProp.id === 5 ? "ml-auto " : "null"
-              } `}
+              className={`bg-gradient-to-b from-utility-buttonGradient1 to-utility-buttonGradient2 p-[2px] rounded-[20.5px] ${buttonProp.id === 5 ? "ml-auto " : "null"
+                } `}
             >
-              <Button variant="darkBlue">{buttonProp.text}</Button>
+              <Button className="text-white dark:text-[#4D505D]" variant="darkBlue">{buttonProp.text}</Button>
             </div>
           ))}
         </div>
@@ -103,7 +102,7 @@ const Faq = () => {
                   className=" p-0 mb-5 w-full flex flex-row items-center justify-between gap-3 cursor-pointer "
                 >
                   {" "}
-                  <h1 className=" text-utility-faqIcon text-[18.2px] font-semibold ">
+                  <h1 className=" text-white dark:text-utility-faqIcon text-[18.2px] font-semibold ">
                     {" "}
                     {data.heading}{" "}
                   </h1>
