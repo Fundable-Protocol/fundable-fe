@@ -6,7 +6,7 @@ import { Chart } from "./chart";
 const DashboardComponent = () => {
   return (
     <div className="dashboard-bg mt-5 space-y-5">
-      <div className="p-0 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="p-0 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
         <StatCard
           icon={<Eye />}
           title="Total Amount Sent"
@@ -30,7 +30,7 @@ const DashboardComponent = () => {
         />
       </div>
 
-      <div className="p-0 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="p-0 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
         <FeatureCard
           title="Airdrops"
           description="Effortlessly distribute funds to recipients, with complete transparency, robust security, and real-time tracking."
