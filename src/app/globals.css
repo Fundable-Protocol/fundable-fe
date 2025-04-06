@@ -38,6 +38,16 @@ body {
   justify-content: center;
 }
 
+.dashboard-bg {
+  background-image:
+    url("../../public/imgs/Gradients.svg"),
+    url("../../public/imgs/Gradients-1.svg"),
+    url("../../public/imgs/Gradients-2.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: top center, bottom left, bottom right;
+  background-size: 450px contain, 450px contain, 450px contain;
+}
+
 @keyframes scroll {
   from {
     transform: translateX(0);
