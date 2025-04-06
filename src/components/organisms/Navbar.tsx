@@ -4,10 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 import ConnectWalletButton from "@/components/atoms/Button";
 import Logo from "../../../public/imgs/fundable_logo.png";
+import { themeStore } from "@/store/theme";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const theme = themeStore.use()
 
+
+  const themeColor = theme.theme === "dark " ? "#0000" : "#ffff";
   const links = [
     { title: "Solutions", url: "#" },
     { title: "Resources", url: "#" },
@@ -43,8 +47,8 @@ const Navbar = () => {
         >
           <svg
             className="w-6 h-6 transition-transform duration-300 ease-in-out"
-            fill="#ffffff"
-            stroke="#ffffff"
+            fill={theme.theme === "dark " ? "#fff" : "#000"}
+            stroke={theme.theme ==="dark" ? "#fff" : "#000"}
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -63,7 +67,7 @@ const Navbar = () => {
         {links.map((link) => (
           <Link
             href={link.url}
-            className="text-white hover:text-primary py-2 sm:py-0"
+            className={`hover:text-primary py-2 sm:py-0 dark:text-white text-black `}
             key={link.title}
           >
             {link.title}
@@ -78,9 +82,8 @@ const Navbar = () => {
 
       {/* Overlay for Mobile */}
       <div
-        className={`fixed inset-0 bg-[#000000d3] z-50 sm:hidden transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-0 bg-[#000000d3] z-50 sm:hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Close Button at the Top-Right */}
         <div className="absolute top-4 right-4">
@@ -91,8 +94,8 @@ const Navbar = () => {
           >
             <svg
               className="w-6 h-6"
-              fill="#ffffff"
-              stroke="#ffffff"
+              fill={themeColor}
+              stroke={themeColor}
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -114,7 +117,7 @@ const Navbar = () => {
           {links.map((link) => (
             <Link
               href={link.url}
-              className="block text-white hover:text-primary py-2"
+              className={`block hover:text-primary py-2 text-white`}
               key={link.title}
               onClick={toggleMenu}
             >
