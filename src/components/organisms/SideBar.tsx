@@ -30,7 +30,6 @@ import walletStore, { disconnectWallet } from "@/store/wallet";
 import { toast } from "react-toastify";
 import { themeStore } from "@/store/theme";
 import { useTheme } from "next-themes";
-import { useEntity } from "simpler-state";
 
 export function SideBar() {
   // const { theme } = themeStore.use();
