@@ -2,8 +2,8 @@ export interface StreamItem {
     id: number;
     recipient: string;
     amountPerSecond: number;
-    startDate: string;
-    endDate: string;
+    startDate: Date;
+    endDate: Date;
     token: string;
     status: "Active" | "Paused" | "Completed";
   }
