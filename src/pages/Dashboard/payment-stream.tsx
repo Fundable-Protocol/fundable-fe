@@ -1,5 +1,5 @@
 const PaymentStreamComponent = () => {
-  return <div>PaymentStreamComponent</div>;
+  return <div>WIP</div>;
 };
 
 export default PaymentStreamComponent;
