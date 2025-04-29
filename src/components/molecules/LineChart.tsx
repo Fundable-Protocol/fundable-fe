@@ -10,29 +10,39 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+interface TooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    name: string;
+    value: number;
+    color: string;
+  }>;
+  label?: string;
+}
+
 const data = [
-  { name: 'Jan', BTC: 2200, ETH: 1800, STMX: 1600 },
-  { name: 'Feb', BTC: 2600, ETH: 2100, STMX: 1900 },
-  { name: 'Mar', BTC: 2900, ETH: 2500, STMX: 2200 },
-  { name: 'Apr', BTC: 3400, ETH: 2900, STMX: 2600 },
-  { name: 'May', BTC: 4000, ETH: 3300, STMX: 3000 },
-  { name: 'Jun', BTC: 4800, ETH: 4100, STMX: 3700 },
-  { name: 'Jul', BTC: 5200, ETH: 4600, STMX: 4200 },
-  { name: 'Aug', BTC: 5800, ETH: 5000, STMX: 4600 },
-  { name: 'Sep', BTC: 6100, ETH: 5500, STMX: 5100 },
-  { name: 'Oct', BTC: 6800, ETH: 5900, STMX: 5600 },
-  { name: 'Nov', BTC: 7300, ETH: 6600, STMX: 6100 },
-  { name: 'Dec', BTC: 7700, ETH: 7000, STMX: 6700 },
+  { name: 'Jan', BTC: 2800, ETH: 2750, STRK: 3100 },
+  { name: 'Feb', BTC: 3400, ETH: 3200, STRK: 2900 }, // BTC and ETH spike, STRK dips
+  { name: 'Mar', BTC: 3100, ETH: 2800, STRK: 3500 }, // BTC and ETH correct, STRK spikes
+  { name: 'Apr', BTC: 2700, ETH: 2600, STRK: 3200 }, // Overall market dip
+  { name: 'May', BTC: 3800, ETH: 3300, STRK: 2800 }, // BTC leads recovery, STRK lags
+  { name: 'Jun', BTC: 3500, ETH: 3900, STRK: 3600 }, // ETH outperforms
+  { name: 'Jul', BTC: 4600, ETH: 3600, STRK: 4500 }, // BTC and STRK spike, ETH flat
+  { name: 'Aug', BTC: 4200, ETH: 4300, STRK: 3800 }, // Mixed performance
+  { name: 'Sep', BTC: 5100, ETH: 4800, STRK: 4200 }, // Strong overall market
+  { name: 'Oct', BTC: 4700, ETH: 4500, STRK: 5300 }, // STRK outperforms, others correct
+  { name: 'Nov', BTC: 5900, ETH: 5600, STRK: 4900 }, // BTC and ETH recovery
+  { name: 'Dec', BTC: 6800, ETH: 6200, STRK: 5900 }, // End-of-year rally
 ];
 
 // Custom Tooltip
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip: React.FC<TooltipProps> = ({ active, payload }) => {
   if (active && payload?.length) {
     return (
-      <div className="bg-[#1e1e2f] p-3 rounded-lg shadow-md border border-[#333]">
+      <div className="bg-gray-900 p-3 rounded-lg shadow-md border border-gray-700">
         {payload.map((entry: any, index: number) => (
           <div key={index} className="flex justify-between items-center mb-1">
-            <span className="text-xs" style={{ color: entry.color }}>
+            <span className="text-xs" style={{ color: entry.stroke || entry.color }}>
               {entry.name}
             </span>
             <span className="text-xs text-white ml-2">${entry.value}</span>
@@ -46,13 +56,13 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 export const CryptoChart = () => {
   return (
-    <div className="relative h-[400px] rounded-2xl p-6 overflow-hidden bg-gradient-to-b from-[#090909] via-[#0d0d0d] to-[#050505]">
+    <div className="relative h-96 rounded-2xl p-6 overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       {/* Background smoky shapes */}
       <div className="absolute top-0 left-0 w-60 h-60 bg-purple-700 opacity-20 blur-3xl" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-700 opacity-20 blur-3xl" />
 
       {/* Chart Legends */}
-      <div className="absolute top-5 left-1 flex space-x-6 z-10">
+      <div className="absolute top-5 left-12 flex space-x-6 z-10">
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 rounded-full bg-pink-400"></div>
           <span className="text-xs text-gray-300">BTC</span>
@@ -63,25 +73,16 @@ export const CryptoChart = () => {
         </div>
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-          <span className="text-xs text-gray-300">STMX</span>
+          <span className="text-xs text-gray-300">STRK</span>
         </div>
       </div>
 
-      {/* Manual Y-axis labels */}
-      <div className="absolute left-4 top-10 flex flex-col justify-between h-[320px] text-[10px] text-gray-500">
-        <span>7,000</span>
-        <span>6,000</span>
-        <span>5,000</span>
-        <span>4,000</span>
-        <span>3,000</span>
-      </div>
-
       {/* Chart */}
-      <div className="ml-16 h-full pr-8">
+      <div className="h-full w-full">
         <ResponsiveContainer width="100%" height="100%">
           <RechartsLineChart
             data={data}
-            margin={{ top: 50, right: 30, left: 0, bottom: 5 }}
+            margin={{ top: 50, right: 30, left: 20, bottom: 5 }}
           >
             <defs>
               <linearGradient id="colorBTC" x1="0" y1="0" x2="1" y2="0">
@@ -92,7 +93,7 @@ export const CryptoChart = () => {
                 <stop offset="0%" stopColor="#00d4ff" stopOpacity={0.8} />
                 <stop offset="100%" stopColor="#00d4ff" stopOpacity={0.4} />
               </linearGradient>
-              <linearGradient id="colorSTMX" x1="0" y1="0" x2="1" y2="0">
+              <linearGradient id="colorSTRK" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor="#ffae00" stopOpacity={0.8} />
                 <stop offset="100%" stopColor="#ffae00" stopOpacity={0.4} />
               </linearGradient>
@@ -103,44 +104,39 @@ export const CryptoChart = () => {
               stroke="#555"
               axisLine={false}
               tickLine={false}
-              fontSize={10}
+              fontSize={12}
             />
-            <YAxis hide domain={[1000, 8000]} />
+            
+            <YAxis 
+              domain={[2500, 7000]} 
+              stroke="#555"
+              axisLine={false}
+              tickLine={false}
+              fontSize={12}
+              tickFormatter={(value) => `${value.toLocaleString()}`}
+              width={40}
+              ticks={[2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000]}
+            />
+            
             <Tooltip content={<CustomTooltip />} />
 
-            <Line
-              type="basis"
-              dataKey="BTC"
-              stroke="url(#colorBTC)"
-              strokeWidth={3}
-              dot={false}
-              activeDot={{ r: 6 }}
-              className="drop-shadow-[0_0_6px_#ff00c3]"
-              isAnimationActive={true}
-              animationDuration={2500}
-            />
-            <Line
-              type="basis"
-              dataKey="ETH"
-              stroke="url(#colorETH)"
-              strokeWidth={3}
-              dot={false}
-              activeDot={{ r: 6 }}
-              className="drop-shadow-[0_0_6px_#00d4ff]"
-              isAnimationActive={true}
-              animationDuration={2500}
-            />
-            <Line
-              type="basis"
-              dataKey="STMX"
-              stroke="url(#colorSTMX)"
-              strokeWidth={3}
-              dot={false}
-              activeDot={{ r: 6 }}
-              className="drop-shadow-[0_0_6px_#ffae00]"
-              isAnimationActive={true}
-              animationDuration={2500}
-            />
+            {[
+              { dataKey: "BTC", color: "#ff00c3" },
+              { dataKey: "ETH", color: "#00d4ff" },
+              { dataKey: "STRK", color: "#ffae00" }
+            ].map(({ dataKey, color }) => (
+              <Line
+                key={dataKey}
+                type="basis"
+                dataKey={dataKey}
+                stroke={color}
+                strokeWidth={3}
+                dot={false}
+                activeDot={{ r: 6, fill: color }}
+                isAnimationActive={true}
+                animationDuration={2500}
+              />
+            ))}
           </RechartsLineChart>
         </ResponsiveContainer>
       </div>

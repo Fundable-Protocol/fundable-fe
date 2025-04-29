@@ -26,7 +26,7 @@ body {
 
 }
 .glass {
-  background: linear-gradient(to top right, hsla(256, 100%, 67%, 0.13) 2%, rgba(255, 255, 255, 0.13) 28% 68% , hsla(256, 100%, 67%, 0.13)); ;
+  background: linear-gradient(to top right, hsla(256, 100%, 67%, 0.13) 2%, rgba(255, 255, 255, 0.13) 28% 68% , hsla(256, 100%, 67%, 0.13));
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3px);
