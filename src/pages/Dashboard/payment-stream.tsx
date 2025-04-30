@@ -18,6 +18,9 @@ const PaymentStreamComponent = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
+  const totalItems = streamData.length || 0;
+const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
   }
@@ -39,7 +42,7 @@ const PaymentStreamComponent = () => {
         <div className="w-full flex items-center justify-between px-6 " >
 
 
-          <h4 className=" text-[#D9D9D980] font-normal text-sm "  >Page {currentPage} of  {Math.ceil(streamData.length / itemsPerPage)} </h4>
+          <h4 className=" text-[#D9D9D980] font-normal text-sm "  >Page {currentPage} of  {totalPages} </h4>
 
 
 
@@ -50,7 +53,7 @@ const PaymentStreamComponent = () => {
               variant={"outline"} className="px-4 py-[6px] rounded font-medium text-base disabled:opacity-50 " >Previous</Button>
             <Button
               onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === Math.ceil(streamData.length / itemsPerPage)}
+              disabled={currentPage === totalPages }
               variant={"outline"} className="px-4 py-[6px] rounded font-medium text-base ">Next</Button>
           </div>
 

@@ -33,6 +33,7 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
 
 
             <table>
+                <caption className="sr-only">Payment Stream Management Table - Showing current streams with details and actions</caption>
                 <thead>
                     <tr>
                         <th className="min-w-[80px] w-[130px] h-[72px] text-center bg-[#21163F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]  " >Stream ID</th>
@@ -49,7 +50,7 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
                 <tbody>
                     {streamData.slice(indexOfFirstItem, indexOfLastItem).map((stream, index) => {
 
-                        const truncatedAddress = stream.recipient.slice(0, 6) + "......" + stream.recipient.slice(streamData.length - 3, streamData.length)
+                        const truncatedAddress = stream.recipient.slice(0, 6) + "......" + stream.recipient.slice(stream.recipient.length - 3, stream.recipient.length)
 
                         const tokenImageMap = {
                             "XLM": "/images/xlm.svg",
@@ -91,10 +92,10 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
 
                                 <td className="flex items-center h-[72px] justify-center gap-[20px]  bg-[#1E212F] p-[10px]  " >
                                     <div className={`  overflow-hidden flex items-center justify-between gap-[20px] transition-all duration-150 ease-in-out ${openMenuIndex === index ? " w-[50px]" : "w-0"} `}  >
-                                        <button onClick={() => setOpenMenuIndex(null)} > <Image src={"/Edit.svg"} alt="edit button" height={24} width={24} /> </button>
-                                        <button onClick={() => setOpenMenuIndex(null)} ><Image src={"/delete.svg"} alt="edit button" height={24} width={24} /></button>
+                                        <button onClick={() => setOpenMenuIndex(null)} aria-label="Edit payment stream" > <Image src={"/Edit.svg"} alt="edit button" height={24} width={24} /> </button>
+                                        <button onClick={() => setOpenMenuIndex(null)} aria-label="Delete payment stream" ><Image src={"/delete.svg"} alt="delete button" height={24} width={24} /></button>
                                     </div>
-                                    <button onClick={() => toggleShowMenu(index)}><EllipsisVertical color="white" size={24} className={` transform  transition-all duration-150 ease-in-out   ${openMenuIndex === index ? "rotate-[180deg] " : "rotate-0"} `} /></button>
+                                    <button onClick={() => toggleShowMenu(index)}><EllipsisVertical size={24} className={` transform  transition-all duration-150 ease-in-out   ${openMenuIndex === index ? "rotate-[90deg] text-[#00B0FF] " : "rotate-0"} `} /></button>
                                 </td>
 
                             </tr>
