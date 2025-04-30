@@ -13,16 +13,75 @@ import { cn } from "@/lib/utils";
 const CreateCampaign = () => {
     const [selectedChain, setSelectedChain] = useState<string>("");
     const [selectedToken, setSelectedToken] = useState<string>("");
+    const [deadline, setDeadline] = useState<string>("");
     const [claimDeadlineEnabled, setClaimDeadlineEnabled] = useState<boolean>(false);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [campaignName, setCampaignName] = useState<string>("");
     const [campaignDetails, setCampaignDetails] = useState<string>("");
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [errors, setErrors] = useState<Record<string, string>>({});
+
+    const validateForm = () => {
+        const newErrors: Record<string, string> = {};
+
+        if (!campaignName.trim()) {
+            newErrors.campaignName = "Campaign name is required";
+        }
+
+        if (!selectedChain) {
+            newErrors.chain = "Please select a chain";
+        }
+
+        if (!campaignDetails.trim()) {
+            newErrors.campaignDetails = "Campaign details are required";
+        }
+
+        if (!selectedToken) {
+            newErrors.token = "Please select a token";
+        }
+
+        if (!deadline) {
+            newErrors.deadline = "Please select a deadline";
+        }
+
+        if (!selectedFile) {
+            newErrors.file = "Please upload a CSV file";
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSave = () => {
+        // Save form data as draft
+        console.log("Saving form data:", {
+            chain: selectedChain,
+            token: selectedToken,
+            name: campaignName,
+            claimDeadline: claimDeadlineEnabled ? document.querySelector('input[type="date"]') : null,
+            details: campaignDetails,
+            file: selectedFile
+        });
+    };
+
+
+    // Use in the continue button
+    const handleContinue = () => {
+        if (validateForm()) {
+            // Proceed with form submission
+            console.log("Form is valid, proceeding...");
+        }
+    };
 
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
-            setSelectedFile(e.target.files[0]);
+            const file = e.target.files[0];
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File size exceeds 5MB limit');
+                return;
+            }
+            setSelectedFile(file);
         }
     };
 
@@ -73,6 +132,9 @@ const CreateCampaign = () => {
                                     <SelectItem value="optimism">Optimism</SelectItem>
                                 </SelectContent>
                             </Select>
+                            {errors.chain && (
+                                <p className="text-red-500 text-xs mt-1">{errors.chain}</p>
+                            )}
                         </div>
 
                         <div>
@@ -88,6 +150,9 @@ const CreateCampaign = () => {
                                     <SelectItem value="wbtc">WBTC</SelectItem>
                                 </SelectContent>
                             </Select>
+                            {errors.token && (
+                                <p className="text-red-500 text-xs mt-1">{errors.token}</p>
+                            )}
                         </div>
                     </div>
 
@@ -100,6 +165,9 @@ const CreateCampaign = () => {
                                 value={campaignName}
                                 onChange={(e) => setCampaignName(e.target.value)}
                             />
+                            {errors.campaignName && (
+                                <p className="text-red-500 text-xs mt-1">{errors.campaignName}</p>
+                            )}
                         </div>
 
                         <div className="w-full max-w-full" >
@@ -125,14 +193,18 @@ const CreateCampaign = () => {
                                         type="date"
                                         placeholder="Choose a date and time"
                                         className="bg-[#1E212F] border-none w-full flex justify-between h-12"
+                                        onChange={(e) => setDeadline(e.target.value)}
                                         disabled={!claimDeadlineEnabled}
                                     />
                                 </div>
+
 
                                 <div className="ml-4 flex items-center gap-2 p-3">
                                     <div className="flex bg-[#2A2B3C] rounded-md text-xs">
                                         <button
                                             onClick={() => setClaimDeadlineEnabled(true)}
+                                            aria-pressed={claimDeadlineEnabled}
+                                            aria-label="Enable claim deadline"
                                             className={cn(
                                                 "px-3 py-1 rounded-l-md",
                                                 claimDeadlineEnabled ? "bg-[#3C425D] text-white" : "text-slate-400"
@@ -142,6 +214,8 @@ const CreateCampaign = () => {
                                         </button>
                                         <button
                                             onClick={() => setClaimDeadlineEnabled(false)}
+                                             aria-pressed={!claimDeadlineEnabled}
+                                            aria-label="Disable claim deadline"
                                             className={cn(
                                                 "px-3 py-1 rounded-r-md",
                                                 !claimDeadlineEnabled ? "bg-[#3C425D] text-white" : "text-slate-400"
@@ -152,10 +226,10 @@ const CreateCampaign = () => {
                                     </div>
                                 </div>
                             </div>
+                            {errors.deadline && (
+                                <p className="text-red-500 text-xs mt-1">{errors.deadline}</p>
+                            )}
                         </div>
-
-
-
                     </div>
 
                     <div className="mb-6">
@@ -166,13 +240,25 @@ const CreateCampaign = () => {
                             value={campaignDetails}
                             onChange={(e) => setCampaignDetails(e.target.value)}
                         />
+                        {errors.campaignDetails && (
+                            <p className="text-red-500 text-xs mt-1">{errors.campaignDetails}</p>
+                        )}
                     </div>
 
                     <div
                         className="border-2 border-dashed border-[#DEE2E6] rounded-lg p-8 flex flex-col items-center justify-center text-center cursor-pointer"
+                        role="button"
+                        aria-label="Upload CSV file"
+                        tabIndex={0}
                         onDragOver={handleDragOver}
                         onDrop={handleDrop}
                         onClick={handleClickFileUpload}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                handleClickFileUpload();
+                            }
+                        }}
                     >
                         <input
                             type="file"
@@ -195,11 +281,11 @@ const CreateCampaign = () => {
                 </div>
 
                 <div className="flex justify-end gap-4">
-                    <Button variant="outline" className="border-2 rounded-md bg-[#242838] border-[#2A2E41] text-white hover:bg-zinc-800">
+                    <Button onClick={handleSave} variant="outline" className="border-2 rounded-md bg-[#242838] border-[#2A2E41] text-white hover:bg-zinc-800">
                         <Download size={16} className="mr-2" />
                         Save
                     </Button>
-                    <Button className="rounded-md bg-purple-600 hover:bg-purple-700 bg-gradient-to-tr text-white"
+                    <Button onClick={handleContinue} className="rounded-md bg-purple-600 hover:bg-purple-700 bg-gradient-to-tr text-white"
                         style={{
                             backgroundImage:
                                 'linear-gradient(to right, #1F8EBE, #440495, #B102CD)',
