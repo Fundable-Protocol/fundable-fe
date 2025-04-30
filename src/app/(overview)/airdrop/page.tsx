@@ -1,5 +1,5 @@
 
-import CreateCampaign from "@/components/airdrop/CreateCampain";
+import CreateCampaign from "@/components/airdrop/CreateCampaign";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
