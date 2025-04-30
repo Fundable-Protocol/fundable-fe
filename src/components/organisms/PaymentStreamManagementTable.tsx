@@ -36,14 +36,14 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
                 <caption className="sr-only">Payment Stream Management Table - Showing current streams with details and actions</caption>
                 <thead>
                     <tr>
-                        <th className="min-w-[80px] w-[130px] h-[72px] text-center bg-[#21163F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]  " >Stream ID</th>
+                        <th className="min-w-[80px] w-[80px] h-[72px] text-center bg-[#21163F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]  " >Stream ID</th>
                         <th className=" min-w-[110px] w-[150px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1] " >Recipient Address</th>
-                        <th className="min-w-[102px] w-[142px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Amount Per Second</th>
+                        <th className="min-w-[102px] w-[132px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Amount Per Second</th>
                         <th className="min-w-[80px] w-[120px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Start Date</th>
                         <th className="min-w-[80px] w-[120px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">End Date</th>
                         <th className="min-w-[80px] w-[120px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Token</th>
-                        <th className="min-w-[140px] w-[180px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Status</th>
-                        <th className="min-w-[140px] w-[150px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Action</th>
+                        <th className="min-w-[120px] w-[150px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Status</th>
+                        <th className="min-w-[100px] w-[100px] h-[72px] text-center bg-[#1E212F] p-[10px] text-xs  md:text-base font-bold text-[#E1E1E1]">Action</th>
                     </tr>
                 </thead>
 
@@ -71,7 +71,7 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
 
                         return (
                             <tr key={index} className="border-t-[2px] border-b-[1px] border-[#CDCDCD0D]"   >
-                                <td className="text-center h-[72px] bg-[#21163F]  p-[10px] text-[#E1E1E1] text-xs md:text-base font-normal "  > {index + 1} </td>
+                                <td className="text-center h-[72px] bg-[#21163F]  p-[10px] text-[#E1E1E1] text-xs md:text-base font-normal "  > {stream.id} </td>
                                 <td className="text-center h-[72px]  bg-[#1E212F] p-[10px] text-[#E1E1E1] text-xs md:text-base font-normal" > {truncatedAddress} </td>
                                 <td className="text-center h-[72px]   bg-[#1E212F] p-[10px] text-[#E1E1E1] text-xs md:text-base font-normal"  > {stream.amountPerSecond} </td>
                                 <td className="text-center  h-[72px]  bg-[#1E212F] p-[10px] text-[#E1E1E1] text-xs md:text-base font-normal" > {formattedStartDate} </td>
