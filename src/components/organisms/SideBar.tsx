@@ -53,12 +53,12 @@ export function SideBar() {
   const { isConnected } = walletStore.use()
   const menuItems = [
     { icon: LayoutDashboard, label: "Dashboard", route: "/dashboard" },
-    { icon: GraphIcon, label: "Distribution", route: "/dashboard/distribute" },
-    { icon: BooleanIcon, label: "Payment Stream", route: "/dashboard/payment-stream" },
-    { icon: Eye, label: "Airdrop", route: "/dashboard/airdrop" },
-    { icon: BookOpenText, label: "Analytics", route: "/dashboard/analytics" },
-    { icon: UserRound, label: "History", route: "/dashboard/history" },
-    { icon: Wallet, label: "Help", route: "/dashboard/help" },
+    { icon: GraphIcon, label: "Distribution", route: "/distribute" },
+    { icon: BooleanIcon, label: "Payment Stream", route: "/payment-stream" },
+    { icon: Eye, label: "Airdrop", route: "/airdrop" },
+    { icon: BookOpenText, label: "Analytics", route: "/analytics" },
+    { icon: UserRound, label: "History", route: "/history" },
+    { icon: Wallet, label: "Help", route: "/help" },
   ];
 
 
