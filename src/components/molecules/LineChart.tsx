@@ -62,7 +62,7 @@ export const CryptoChart = () => {
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-700 opacity-20 blur-3xl" />
 
       {/* Chart Legends */}
-      <div className="absolute top-5 left-12 flex space-x-6 z-10">
+      <div className="absolute top-5 left-20 flex space-x-6 z-10">
         <div className="flex items-center space-x-2">
           <div className="w-2 h-2 rounded-full bg-pink-400"></div>
           <span className="text-xs text-gray-300">BTC</span>
