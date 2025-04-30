@@ -46,7 +46,7 @@ export default function LogoCloud() {
     if (scrollerRef.current) {
       scrollerRef.current.style.setProperty("--duration", `${duration}s`)
     }
-  }, [])
+  }, [logos.length])
 
   return (
     <div
@@ -69,7 +69,7 @@ export default function LogoCloud() {
                 height={80}
                 priority
                 className="transition-transform hover:scale-110 object-contain"
-                style={{ width: "150px", height: "auto" }} 
+                style={{ width: "150px", height: "auto" }}
               />
             </div>
           ))}
