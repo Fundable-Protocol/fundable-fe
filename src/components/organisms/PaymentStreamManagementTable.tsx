@@ -50,21 +50,18 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
                     {streamData.slice(indexOfFirstItem, indexOfLastItem).map((stream, index) => {
 
                         const truncatedAddress = stream.recipient.slice(0, 6) + "......" + stream.recipient.slice(streamData.length - 3, streamData.length)
-                        const tokenImage = () => {
-                            if (stream.token === "XLM") {
-                                return "/images/xlm.svg"
-                            }
-                            else if (stream.token === "TON") {
-                                return "/images/ton.svg"
-                            }
-                            else if (stream.token === "ETH") {
-                                return "/images/eth.svg"
-                            }
-                            else {
-                                return "/images/starknet.svg"
-                            }
 
+                        const tokenImageMap = {
+                            "XLM": "/images/xlm.svg",
+                            "TON": "/images/ton.svg",
+                            "ETH": "/images/eth.svg",
+                            "STRK": "/images/starknet.svg"
+                        };
+
+                        const tokenImage = () => {
+                            return tokenImageMap[stream.token as keyof typeof tokenImageMap] || "/images/starknet.svg";
                         }
+
 
                         const formattedStartDate = dateFormatter(new Date(stream.startDate));
                         const formattedEndDate = dateFormatter(new Date(stream.endDate));
@@ -81,10 +78,16 @@ export default function PaymentStreamManagementTable({ indexOfFirstItem, indexOf
                                 <td className="text-center h-[72px]   bg-[#1E212F] p-[10px]" > <span className="flex items-center justify-center gap-[10px] mx-auto text-[#E1E1E1] text-xs md:text-base font-normal" >
                                     <Image src={tokenImage()} alt={`${stream.token} token `} height={32} width={32} className=" w-4 h-4  md:w-8 md:h-8 " />  {stream.token} </span> </td>
                                 <td className="text-center h-[72px]  bg-[#1E212F] p-[10px]  text-xs md:text-base font-normal" >
+
                                     <span
-                                        className={`py-[6px] px-[8px] bg-[#F4FBF6] block text-center  rounded-lg border-[1px] w-fit self-center min-w-[64px] mx-auto ${stream.status === "Active" || stream.status === "Completed" ? "border-[#2B9A66] text-[#2B9A66] " : "text-[#DC3E42] border-[#FFDBDC] "} `} >
+                                        className={`py-[6px] px-[8px] block text-center rounded-lg border-[1px] w-fit self-center min-w-[64px] mx-auto
+           ${stream.status === "Active" ? "bg-[#F4FBF6] border-[#2B9A66] text-[#2B9A66]" :
+                                                stream.status === "Completed" ? "bg-[#F4FBF6] border-[#2B9A66] text-[#2B9A66]" :
+                                                    stream.status === "Paused" ? "bg-[#F4FBF6] text-[#DC3E42] border-[#FFDBDC]" :
+                                                        "bg-[#F4FBF6] text-[#DC3E42] border-[#FFDBDC]"}`} >
                                         {stream.status}
-                                    </span> </td>
+                                    </span>
+                                </td>
 
                                 <td className="flex items-center h-[72px] justify-center gap-[20px]  bg-[#1E212F] p-[10px]  " >
                                     <div className={`  overflow-hidden flex items-center justify-between gap-[20px] transition-all duration-150 ease-in-out ${openMenuIndex === index ? " w-[50px]" : "w-0"} `}  >

@@ -29,7 +29,7 @@ const PaymentStreamComponent = () => {
       <hr className="border-[#2A2E41] border-[2px] w-full mt-[30px]  " />
 
       <div className="w-full flex flex-col items-start "  >
-        <Button className="self-end rounded-t-xl px-2 md:px-[18px] py-2 md:py-[14px] bg-[#242838] border-[2px] border-[#2A2E41] gap-3 text-sm md:text-base font-semibold  " variant={"outline"} > <PlusIcon />  <span> New Campaign</span></Button>
+        <Button className="self-end rounded-t-xl px-2 md:px-[18px] py-2 md:py-[14px] bg-[#242838] border-[2px] border-[#2A2E41] gap-3 text-sm md:text-base font-semibold  " variant={"outline"}   aria-label="Create new payment stream campaign" > <PlusIcon />  <span> New Campaign</span></Button>
         <hr className="border-[#2A2E41] border-[2px] w-full  " />
       </div>
 
@@ -47,7 +47,7 @@ const PaymentStreamComponent = () => {
             <Button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              variant={"outline"} className="px-4 py-[6px] rounded font-medium text- disabled:opacity-50 " >Previous</Button>
+              variant={"outline"} className="px-4 py-[6px] rounded font-medium text-base disabled:opacity-50 " >Previous</Button>
             <Button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === Math.ceil(streamData.length / itemsPerPage)}
