@@ -1,10 +1,28 @@
+"use client"
+
 import PaymentStreamManagementTable from "@/components/organisms/PaymentStreamManagementTable";
 import { Button } from "@/components/ui/button";
+import { streamData } from "@/lib/StreamData";
 import { PlusIcon } from "lucide-react";
+import { useState } from "react";
 
 
 
 const PaymentStreamComponent = () => {
+
+
+
+  const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
+
   return <div className="p-4 font-urbanist">
     <div className="  w-full h-full flex flex-col items-start gap-2" >
       <h1 className="text-base  text-[#E1E4EA] font-semibold " >Payment streams</h1>
@@ -17,17 +35,23 @@ const PaymentStreamComponent = () => {
 
 
       <div className="w-full flex items-center flex-col justify-center mx-auto "  >
-        <PaymentStreamManagementTable />
+        <PaymentStreamManagementTable indexOfLastItem={indexOfLastItem} indexOfFirstItem={indexOfFirstItem} />
         <div className="w-full flex items-center justify-between px-6 " >
 
 
-          <h4 className=" text-[#D9D9D980] font-normal text-sm "  >Page 1 of 2</h4>
+          <h4 className=" text-[#D9D9D980] font-normal text-sm "  >Page {currentPage} of  {Math.ceil(streamData.length / itemsPerPage)} </h4>
 
 
 
           <div className="flex items-center justify-center gap-3 py-4 "  >
-            <Button variant={"outline"} className="px-4 py-[6px] rounded font-medium text-base " >Previous</Button>
-            <Button variant={"outline"} className="px-4 py-[6px] rounded font-medium text-base ">Next</Button>
+            <Button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              variant={"outline"} className="px-4 py-[6px] rounded font-medium text- disabled:opacity-50 " >Previous</Button>
+            <Button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === Math.ceil(streamData.length / itemsPerPage)}
+              variant={"outline"} className="px-4 py-[6px] rounded font-medium text-base ">Next</Button>
           </div>
 
         </div>
