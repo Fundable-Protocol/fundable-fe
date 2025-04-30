@@ -102,7 +102,7 @@ const CreateCampaign = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className="w-full max-w-full" >
                             <div className="flex items-center gap-1 mb-2">
                                 <Label className="text-[#8792AB]">Claim window ends on</Label>
                                 <TooltipProvider>
@@ -119,8 +119,8 @@ const CreateCampaign = () => {
                                 </TooltipProvider>
                             </div>
 
-                            <div className="flex items-center justify-around rounded-md bg-[#1E212F]">
-                                <div className="flex-1 mr-4">
+                            <div className="flex w-full max-w-full flex-wrap items-center rounded-md bg-[#1E212F]">
+                                <div className="flex-1 flex-wrap">
                                     <Input
                                         type="date"
                                         placeholder="Choose a date and time"
