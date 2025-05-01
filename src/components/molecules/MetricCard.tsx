@@ -19,7 +19,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   trendColor = 'green', 
   icon 
 }) => (
-  <Card className="flex flex-col gap-2 space-y-4 p-6">
+  <Card className="flex flex-col gap-2 space-y-4 p-8">
     <div className="flex justify-between items-center mb-2">
       <div className="flex items-center gap-2 text-sm text-gray-400">
         {icon}
