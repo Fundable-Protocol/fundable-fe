@@ -89,7 +89,7 @@ const DashboardComponent = () => {
     plugins: {
       legend: {
         display: false,
-        position: "top",
+        position: "top" as const,
         labels: {
           color: "#D1D5DB",
           font: { size: 14 },
@@ -110,7 +110,7 @@ const DashboardComponent = () => {
         display: false,
         text: "Analytics",
         color: "#FFFFFF",
-        font: { size: 18, weight: "bold" },
+        font: { size: 18, weight: "bold" as const },
       },
     },
     scales: {
