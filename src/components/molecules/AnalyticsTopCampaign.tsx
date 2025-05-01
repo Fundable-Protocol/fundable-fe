@@ -17,16 +17,16 @@ function AnalyticsTopCampaign({
       <caption className="sr-only">Top Performing Campaigns Data</caption>
       <thead>
         <tr className="text-[#AEABD8]">
-          <th style={{ fontWeight: 400, fontSize: "13.6px" }} scope="col">
+          <th className="font-normal text-sm" scope="col">
             Name
           </th>
-          <th style={{ fontWeight: 400, fontSize: "13.6px" }} scope="col">
+          <th className="font-normal text-sm" scope="col">
             Date
           </th>
-          <th style={{ fontWeight: 400, fontSize: "13.6px" }} scope="col">
+          <th className="font-normal text-sm" scope="col">
             Amount
           </th>
-          <th style={{ fontWeight: 400, fontSize: "13.6px" }} scope="col">
+          <th className="font-normal text-sm" scope="col">
             Status
           </th>
         </tr>

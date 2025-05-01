@@ -22,8 +22,6 @@ function AnalyticsChart({
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
-        width={500}
-        height={300}
         data={data}
         margin={{
           top: 5,
@@ -31,6 +29,7 @@ function AnalyticsChart({
           left: 20,
           bottom: 5,
         }}
+        aria-label="Monthly income and outcome bar chart"
       >
         <CartesianGrid
           stroke="#8C89B480"
@@ -40,18 +39,29 @@ function AnalyticsChart({
         <XAxis stroke="#8C89B480" dataKey="name" strokeDasharray="5 5" />
         <YAxis stroke="#8C89B480" strokeWidth={0} />
 
-        <Tooltip />
+        <Tooltip
+          contentStyle={{
+            backgroundColor: "#6359E9",
+            border: "none",
+          }}
+          itemStyle={{
+            color: "#fff",
+          }}
+          labelStyle={{
+            display: "none",
+          }}
+        />
         <Bar
           dataKey="Income"
-          fill="#82ca9d"
-          activeBar={<Rectangle fill="pink" stroke="blue" />}
+          fill="#64CFF6"
+          activeBar={<Rectangle fill="#64CFF6" stroke="blue" />}
           radius={[40, 40, 0, 0]}
           barSize={12}
         />
         <Bar
           dataKey="Outcome"
-          fill="#8884d8"
-          activeBar={<Rectangle fill="gold" stroke="purple" />}
+          fill="#6359E9"
+          activeBar={<Rectangle fill="#6359E9" stroke="purple" />}
           radius={[40, 40, 0, 0]}
           barSize={12}
         />
