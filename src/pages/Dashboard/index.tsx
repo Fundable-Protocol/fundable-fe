@@ -192,7 +192,7 @@ const DashboardComponent = () => {
         <article
           className="bg-gray-100 dark:bg-[#262627] w-full md:shrink-0 md:w-[306.59px] h-[120.34px] flex items-center gap-5 p-6 rounded-[19px]"
           role="region"
-          aria-label={`Total Funds Raised: $${analyticsData.totalFundsRaised}, ${analyticsData.fundsRaisedChange}% change`}
+          aria-label={`Total Funds Raised: $${analyticsData.totalDonations}, ${analyticsData.totalDonationsChange}% change`}
         >
           <div className="items-center justify-center rounded-lg shrink-0 bg-[#6359E9] h-[42.98px] w-[42.98px] flex">
             <ArrowUpRight aria-hidden="true" />
@@ -203,11 +203,11 @@ const DashboardComponent = () => {
             </h3>
             <div className="flex items-center gap-1 justify-between">
               <p className="text-2xl font-extrabold">
-                ${analyticsData.totalFundsRaised}
+                ${analyticsData.totalDonations}
               </p>
               <div className="flex items-center justify-center bg-[#EB001B26]/15 w-[60.17px] h-[22px] rounded-lg">
                 <p className="text-red-500 text-xs">
-                  {analyticsData.fundsRaisedChange}%
+                  {analyticsData.totalDonationsChange}%
                 </p>
               </div>
             </div>
