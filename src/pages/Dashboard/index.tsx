@@ -25,11 +25,11 @@ ChartJS.register(
 );
 
 const analyticsData = {
-  totalFundsRaised: "632.000",
+  totalFundsRaised: "632,000",
   fundsRaisedChange: "+1.29",
   activeCampaigns: 5,
   activeCampaignsChange: "-1.29",
-  totalDonations: "632.000",
+  totalDonations: "632,000",
   totalDonationsChange: "-1.29",
   campaigns: [
     {
@@ -192,7 +192,7 @@ const DashboardComponent = () => {
         <article
           className="bg-gray-100 dark:bg-[#262627] w-full md:shrink-0 md:w-[306.59px] h-[120.34px] flex items-center gap-5 p-6 rounded-[19px]"
           role="region"
-          aria-label={`Total Funds Raised: $${analyticsData.totalDonations}, ${analyticsData.totalDonationsChange}% change`}
+          aria-label={`Total Donationds: $${analyticsData.totalDonations}, ${analyticsData.totalDonationsChange}% change`}
         >
           <div className="items-center justify-center rounded-lg shrink-0 bg-[#6359E9] h-[42.98px] w-[42.98px] flex">
             <ArrowUpRight aria-hidden="true" />
