@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { sepolia, mainnet, Chain } from "@starknet-react/chains";
 import {
   StarknetConfig,
@@ -39,8 +39,6 @@ const WalletProvider = ({ children }: { children: React.ReactNode }) => {
       switch (chain.id) {
         case mainnet.id:
           return { nodeUrl: "https://api.cartridge.gg/x/starknet/mainnet" };
-        case sepolia.id:
-          return { nodeUrl: "https://api.cartridge.gg/x/starknet/sepolia" };
         default:
           console.warn(`Unknown chain ID: ${chain.id}, defaulting to Sepolia`);
           return { nodeUrl: "https://api.cartridge.gg/x/starknet/sepolia" };
