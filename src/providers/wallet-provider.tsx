@@ -11,6 +11,7 @@ import {
 import { ControllerConnector } from "@cartridge/connector";
 import { ControllerOptions } from "@cartridge/controller";
 
+// Define ControllerOptions with proper configuration
 const controllerOptions: ControllerOptions = {
   url: "https://api.cartridge.gg/x/starknet/sepolia",
   defaultChainId: sepolia.id.toString(),
@@ -20,6 +21,7 @@ const controllerOptions: ControllerOptions = {
   ],
 };
 
+// Create a properly configured controller connector
 const cartridgeConnector = new ControllerConnector(controllerOptions);
 
 // Log the connector details for debugging

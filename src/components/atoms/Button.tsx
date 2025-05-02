@@ -82,6 +82,7 @@ const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
       console.error("Connection process error:", error);
       toast.error("Failed to complete wallet connection. Please try again.");
     } finally {
+      
       if (status !== 'connected') {
         setIsConnecting(false);
       }
