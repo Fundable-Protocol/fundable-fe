@@ -11,6 +11,7 @@ import {
 import { ControllerConnector } from "@cartridge/connector";
 import { ControllerOptions } from "@cartridge/controller";
 
+// Define ControllerOptions with proper configuration
 const controllerOptions: ControllerOptions = {
   url: "https://api.cartridge.gg/x/starknet/sepolia",
   defaultChainId: sepolia.id.toString(),
@@ -20,30 +21,18 @@ const controllerOptions: ControllerOptions = {
   ],
 };
 
+// Create a properly configured controller connector
 const cartridgeConnector = new ControllerConnector(controllerOptions);
-
-// Log the connector details for debugging
-console.log("Controller Connector initialized with ID:", cartridgeConnector.id);
-console.log("Controller name:", cartridgeConnector.name);
-console.log("Controller options:", controllerOptions);
 
 const WalletProvider = ({ children }: { children: React.ReactNode }) => {
   const { connectors: injectedConnectors } = useInjectedConnectors({
     order: "random",
   });
   
-  // Add the cartridge connector to the list
   const allConnectors = [
     ...injectedConnectors,
     cartridgeConnector
   ];
-  
-  // Log all available connectors on mount
-  useEffect(() => {
-    console.log("All available connectors:", 
-      allConnectors.map(c => ({ id: c.id, name: c.name }))
-    );
-  }, []);
 
   const provider = jsonRpcProvider({
     rpc: (chain: Chain) => {
