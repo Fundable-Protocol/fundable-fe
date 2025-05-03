@@ -14,7 +14,7 @@ const SidebarNav = () => {
   }, [address]);
 
   return (
-    <header className="w-[83vw] h-16 bg-slate-100 dark:bg-black text-white flex items-center justify-between px-4 md:px-6 shadow-md z-50">
+    <header className="w-[83vw] h-16 bg-slate-100 dark:bg-black text-white flex items-center justify-between p-6 md:p-10 shadow-md z-50">
       <div className="h-full flex items-center gap-4">
         <h1 className="text-3xl md:text-3xl font-bold font-syne text-black dark:text-white ">Dashboard</h1>
       </div>
