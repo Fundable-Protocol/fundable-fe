@@ -154,7 +154,6 @@ const AnalyticsComponent = () => {
           </div>
           <div />
         </div>
-        <div
         <div className="sr-only">
           <h4>Monthly Income and Outcome Data</h4>
           <p>January: Income $30,000, Outcome $25,000</p>
