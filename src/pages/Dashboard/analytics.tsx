@@ -35,7 +35,7 @@ const analyticsData = {
   ],
 };
 
-const DashboardComponent = () => {
+const AnalyticsComponent = () => {
   const data = [
     {
       name: "Jan",
@@ -89,13 +89,17 @@ const DashboardComponent = () => {
 
   return (
     <div
-      className="-ml-5 w-[99.5%] mt-8 md:ml-4 bg-gray-50 dark:bg-[#151718] min-h-screen md:w-[96.5%] p-3 sm:p-6 rounded-xl"
+      className="-ml-5 w-[99.5%] mt-8 md:ml-4 bg-gray-50 dark:bg-[#151718] 
+         md:w-[96.5%] p-3 sm:p-6 rounded-xl"
       lang="en"
     >
       {/* Stats Cards */}
       <div className="flex flex-col md:flex-row justify-between gap-6 mb-6 overflow-x-auto">
         <AnalyticsCard
-          aria={`Total Funds Raised: $${analyticsData.totalFundsRaised}, ${analyticsData.fundsRaisedChange}% change`}
+          aria={`Total Funds Raised: 
+            $${analyticsData.totalFundsRaised}, 
+            ${analyticsData.fundsRaisedChange}% change
+          `}
           total={analyticsData.totalFundsRaised}
           change={analyticsData.fundsRaisedChange}
           increament={false}
@@ -109,7 +113,7 @@ const DashboardComponent = () => {
           title={"Active Campaigns"}
         />
         <AnalyticsCard
-          aria={`Total Donationds: $${analyticsData.totalDonations}, ${analyticsData.totalDonationsChange}% change`}
+          aria={`Total Donations: $${analyticsData.totalDonations}, ${analyticsData.totalDonationsChange}% change`}
           total={analyticsData.totalDonations}
           change={analyticsData.totalDonationsChange}
           increament={true}
@@ -161,4 +165,4 @@ const DashboardComponent = () => {
   );
 };
 
-export default DashboardComponent;
+export default AnalyticsComponent;
