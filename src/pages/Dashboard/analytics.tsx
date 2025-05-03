@@ -155,6 +155,13 @@ const AnalyticsComponent = () => {
           <div />
         </div>
         <div
+        <div className="sr-only">
+          <h4>Monthly Income and Outcome Data</h4>
+          <p>January: Income $30,000, Outcome $25,000</p>
+          <p>February: Income $25,000, Outcome $35,000</p>
+          {/* Continue for all months */}
+        </div>
+        <div
           className="w-full overflow-x-auto h-[180px] md:h-[400px] shrink-0 lg:!w-[95%] mt-20"
           aria-hidden="true"
         >
