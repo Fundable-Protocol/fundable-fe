@@ -11,7 +11,7 @@ import { Slide, ToastContainer } from 'react-toastify';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen min-w-full app-background grid grid-cols-[1fr_5fr]">
+    <div className="min-h-screen h-full min-w-full back-bg grid grid-cols-[1fr_5fr]">
       <SidebarProvider>
         <SideBar />
         <div className="flex flex-col">
