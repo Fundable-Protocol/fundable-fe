@@ -159,7 +159,12 @@ const AnalyticsComponent = () => {
           <h4>Monthly Income and Outcome Data</h4>
           <p>January: Income $30,000, Outcome $25,000</p>
           <p>February: Income $25,000, Outcome $35,000</p>
-          {/* Continue for all months */}
+          <p>March: Income $20,000, Outcome $15,000</p>
+          <p>April: Income $25,000, Outcome $30,000</p>
+          <p>May: Income $35,000, Outcome $20,000</p>
+          <p>June: Income $20,000, Outcome $15,000</p>
+          <p>July: Income $35,000, Outcome $46,456.90</p>
+          <p>August: Income $25,000, Outcome $20,000</p>
         </div>
         <div
           className="w-full overflow-x-auto h-[180px] md:h-[400px] shrink-0 lg:!w-[95%] mt-20"
