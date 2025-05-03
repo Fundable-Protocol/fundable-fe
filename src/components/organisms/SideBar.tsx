@@ -25,12 +25,12 @@ import Image from "next/image";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import "@fontsource/itim";
 import { useDisconnect } from "@starknet-react/core";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import walletStore, { disconnectWallet } from "@/store/wallet";
 import { toast } from "react-toastify";
 import { themeStore } from "@/store/theme";
 import { useTheme } from "next-themes";
-import { useEntity } from "simpler-state";
+// import { useEntity } from "simpler-state";
 
 export function SideBar() {
   // const { theme } = themeStore.use();
@@ -45,19 +45,22 @@ export function SideBar() {
   }
   const darkMode = theme === "dark";
   const [isOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Dashboard");
+
   const route = useRouter()
+  const pathname = usePathname();
+  const [activeItem, setActiveItem] = useState("");
   const { disconnect, isSuccess } = useDisconnect()
   const { isConnected } = walletStore.use()
   const menuItems = [
-    { icon: LayoutDashboard, label: "Dashboard" },
-    { icon: GraphIcon, label: "Distribution" },
-    { icon: BooleanIcon, label: "Payment Stream" },
-    { icon: Eye, label: "Airdrop" },
-    { icon: BookOpenText, label: "Analytics" },
-    { icon: UserRound, label: "History" },
-    { icon: Wallet, label: "Help" },
+    { icon: LayoutDashboard, label: "Dashboard", route: "/dashboard" },
+    { icon: GraphIcon, label: "Distribution", route: "/distribute" },
+    { icon: BooleanIcon, label: "Payment Stream", route: "/payment-stream" },
+    { icon: Eye, label: "Airdrop", route: "/airdrop" },
+    { icon: BookOpenText, label: "Analytics", route: "/analytics" },
+    { icon: UserRound, label: "History", route: "/history" },
+    { icon: Wallet, label: "Help", route: "/help" },
   ];
+
 
   const handledisConnect = async () => {
     try {
@@ -81,7 +84,13 @@ export function SideBar() {
       disconnectWallet()
     }
   }, [isSuccess, route])
-
+  useEffect(() => {
+    const sortedMenuItems = [...menuItems].sort((a, b) => b.route.length - a.route.length);
+    const current = sortedMenuItems.find((item) => pathname?.startsWith(item.route));
+    if (current) {
+      setActiveItem(current.label);
+    }
+  }, [pathname]);
   return (
     <>
       <div className="md:hidden flex h-16 items-center">
@@ -103,7 +112,7 @@ export function SideBar() {
 
         <SidebarContent className="flex flex-col gap-1 px-4 bg-slate-100 dark:bg-sidebar">
           <SidebarGroup>
-            {menuItems.map(({ icon: Icon, label }) => (
+            {menuItems.map(({ icon: Icon, label, route: routePath }) => (
               <Button
 
                 key={label}
@@ -112,7 +121,9 @@ export function SideBar() {
                   ? "bg-purple text-black dark:text-white"
                   : "hover:bg-purple hover:text-white "
                   }`}
-                onClick={() => setActiveItem(label)}
+                onClick={() => {
+                  route.push(routePath);
+                }}
               >
                 <div className="relative flex items-center justify-center w-8 h-8">
                   {activeItem === label && (
