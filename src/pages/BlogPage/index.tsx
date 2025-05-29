@@ -2,6 +2,7 @@ import Navbar from '@/components/organisms/Navbar';
 import Image from 'next/image'
 import Footer from '@/components/organisms/Footer';
 import { User } from 'lucide-react';
+
 import carouselImage from "../../../public/carousel-card-img.svg";
 export default function Blog() {
   const blogItems = Array(9).fill({
