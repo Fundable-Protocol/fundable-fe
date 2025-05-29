@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Contributing to Fundable 🛠️
 
-## Getting Started
+Thank you for your interest in contributing to **Fundable**! 🎉
+Your support is crucial for building a decentralized, community-driven fundraising platform.
 
-First, run the development server:
+---
+
+## 📦 Tech Overview
+
+Fundable Frontend uses:
+
+* **Next.js (App Router)**
+* **TypeScript**
+* **Tailwind CSS**
+* **Shadcn UI** for accessible components
+* **StarkNet.js** for blockchain interactions
+* **ESLint** and **Prettier** for code quality
+
+---
+
+## 🧪 Local Setup
+
+1. **Fork** the repo and clone your fork:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/YOUR_USERNAME/fundable-fe.git
+cd fundable-frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Run the dev server:**
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📃️ Branching Strategy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Use feature branches off `dev`.
+* Follow a naming convention like:
 
-## Deploy on Vercel
+  * `feat/upload-csv`
+  * `fix/ui-button`
+  * `docs/update-readme`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git checkout -b feat/my-feature
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧨 Commit Messages
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and **atomic commits**.
+
+### ✅ Format:
+
+```bash
+<type>(scope): short description
+```
+
+### Common types:
+
+| Type       | Purpose                          |
+| ---------- | -------------------------------- |
+| `feat`     | New feature                      |
+| `fix`      | Bug fix                          |
+| `docs`     | Documentation only               |
+| `style`    | Visual changes (no logic change) |
+| `refactor` | Code cleanup without feature/fix |
+| `test`     | Adding or updating tests         |
+| `chore`    | Build tools, CI config, etc.     |
+
+### 🔬 Examples:
+
+```bash
+feat(distribution): add weighted split option
+fix(csv): handle invalid rows gracefully
+docs(contributing): add PR guidelines
+style(dropzone): update drag area border
+```
+
+> ⚠️ Avoid bundling multiple logical changes in one commit!
+
+---
+
+## ✅ Before Submitting a PR
+
+* [ ] My changes are **atomic** and follow the commit convention
+* [ ] I ran `pnpm run lint` and fixed all linting errors
+* [ ] I ran `pnpm run format` to apply Prettier formatting
+* [ ] My code is type-safe (`tsc` passes)
+* [ ] I tested the UI changes (if applicable)
+* [ ] I updated docs/comments if necessary
+* [ ] I recorded a short **Loom video** showing the feature or fix in action and included the link in the PR description
+
+---
+
+## 🙌 Submitting Your PR
+
+1. Push to your branch:
+
+```bash
+git push origin feat/my-feature
+```
+
+2. Open a Pull Request to `main`.
+
+3. Add a clear title and description. Include:
+
+   * What was changed
+   * Why it was needed
+   * Screenshots (if visual)
+   * Loom video link (mandatory for feature/UI PRs)
+
+---
+
+## 🢑 Code of Conduct
+
+Please be kind and respectful. We encourage welcoming, inclusive contributions and feedback. Harassment of any kind will not be tolerated.
+
+---
+
+## 💬 Join the Community
+
+Need help or want to chat with contributors?
+
+👉 [Join our Telegram Group](https://t.me/fundable_finance)
+
+---
+
+Thank you for helping build Fundable! 💚
