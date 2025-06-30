@@ -18,11 +18,15 @@ const walletStore = entity<WalletState>(
 );
 
 export const setWalletState = (
-  address: string | null,
-  account: AccountInterface | null,
+  address: string | undefined,
+  account: AccountInterface | undefined,
   isConnected: boolean
 ) => {
-  walletStore.set({ address, isConnected, account });
+  walletStore.set({
+    address: address ?? null,
+    isConnected,
+    account: account ?? null,
+  });
   Cookies.set("walletConnected", isConnected ? "true" : "false", {
     expires: 7,
     path: "/",

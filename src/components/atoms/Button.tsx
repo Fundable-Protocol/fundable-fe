@@ -40,7 +40,7 @@ const ConnectWalletButton: FC<ButtonProps> = ({ className }) => {
   };
 
   useEffect(() => {
-    if (isSuccess && address && account) {
+    if (isSuccess || address || account) {
       route.push("/dashboard")
       setWalletState(address, account, true)
     }
