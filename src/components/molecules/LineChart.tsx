@@ -40,7 +40,7 @@ const CustomTooltip: React.FC<TooltipProps> = ({ active, payload }) => {
   if (active && payload?.length) {
     return (
       <div className="bg-gray-900 p-3 rounded-lg shadow-md border border-gray-700">
-        {payload.map((entry: any, index: number) => (
+        {payload.map((entry: { name: string; value: number; color?: string; stroke?: string }, index: number) => (
           <div key={index} className="flex justify-between items-center mb-1">
             <span className="text-xs" style={{ color: entry.stroke || entry.color }}>
               {entry.name}
