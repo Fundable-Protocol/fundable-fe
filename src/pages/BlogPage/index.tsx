@@ -1,24 +1,47 @@
+"use client";
+
 import Navbar from "@/components/organisms/Navbar";
 import { User } from "lucide-react";
 import Image from "next/image";
 import carouselImage from "../../../public/carousel-card-img.svg";
 import Link from "next/link";
 import Footer from "@/components/organisms/Footer";
+import { useState } from "react";
 
 interface BlogItem {
+  id: number;
   title: string;
   description: string;
   imageUrl: string;
 }
 
-const blogItems: BlogItem[] = Array(9).fill({
+const blogItems: BlogItem[] = Array.from({ length: 9 }, (_, index) => ({
+  id: index + 1,
   title: "Talk it out with audio",
   description:
     "Effortlessly distribute funds to recipients, with complete transparency, robust security, and real-time tracking.",
   imageUrl: carouselImage,
-});
+}));
 
 export default function BlogPage() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!email) return;
+    const newData = { email };
+
+    try {
+      setIsSubmitting(true);
+      console.log("Submitted data:", newData);
+      // Api Handling here
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main>
       <Navbar />
@@ -63,9 +86,9 @@ export default function BlogPage() {
 
       <section className="relative flex flex-col justify-center items-center gap-6 px-4 max-w-6xl mx-auto z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {blogItems.map((item, index) => (
+          {blogItems.map((item) => (
             <article
-              key={index}
+              key={item.id}
               className="relative bg-[#0f0f10] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow backdrop-blur-md bg-opacity-50"
             >
               <div className="absolute top-[40%] right-[30%] rounded-full w-20 h-20 bg-[#8256FF] opacity-50 blur-lg z-[-5]"></div>
@@ -82,18 +105,18 @@ export default function BlogPage() {
                 <p className="text-sm text-[#A5AEC0] mt-2">
                   {item.description}
                 </p>
-                <a
-                  href={`/blog/${index + 1}`}
+                <Link
+                  href={`/blog/${item.id}`}
                   className="inline-block mt-4 text-[#7A7A7A] hover:underline"
                 >
                   Read more →
-                </a>
+                </Link>
               </div>
             </article>
           ))}
         </div>
         <Link
-          href="/blog"
+          href="/blog/all"
           className="border px-6 py-2 mx-auto rounded text-[#696A75] hover:bg-white hover:text-black transition"
         >
           View All Posts
@@ -114,10 +137,15 @@ export default function BlogPage() {
         <h2 className="text-2xl font-bold my-2 text-black">
           Join Our Newsletter
         </h2>
-        <form className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 max-w-md mx-auto">
+        <form
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 max-w-md mx-auto"
+          onSubmit={handleSubmit}
+        >
           <input
             type="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             aria-label="Email address"
             placeholder="Enter your email.."
             className="px-4 py-2 w-full rounded bg-white text-black"
@@ -126,8 +154,9 @@ export default function BlogPage() {
           <button
             type="submit"
             className="bg-white text-black px-6 py-2 rounded"
+            disabled={isSubmitting}
           >
-            Submit
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
         <p className="text-white/70 mt-2">You can unsubscribe anytime</p>
