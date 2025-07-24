@@ -3,24 +3,17 @@
 import Navbar from "@/components/organisms/Navbar";
 import { User } from "lucide-react";
 import Image from "next/image";
-import carouselImage from "../../../public/carousel-card-img.svg";
 import Link from "next/link";
 import Footer from "@/components/organisms/Footer";
 import { useState } from "react";
+import { BlogPostItem } from "@/lib/BlogPostType";
 
-interface BlogItem {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-}
-
-const blogItems: BlogItem[] = Array.from({ length: 9 }, (_, index) => ({
+const blogItems: BlogPostItem[] = Array.from({ length: 9 }, (_, index) => ({
   id: index + 1,
   title: "Talk it out with audio",
   description:
     "Effortlessly distribute funds to recipients, with complete transparency, robust security, and real-time tracking.",
-  imageUrl: carouselImage,
+  imageUrl: "/carousel-card-img.svg",
 }));
 
 export default function BlogPage() {
@@ -47,7 +40,9 @@ export default function BlogPage() {
       <Navbar />
       <section className="xl:min-h-screen flex flex-col space-y-10 xl:space-y-0 xl:justify-between py-16">
         <div className="text-center space-y-2">
-          <h1 className="text-6xl font-bold font-syne">Blog Posts</h1>
+          <h1 className="text-4xl md:text-6xl font-bold font-syne">
+            Blog Posts
+          </h1>
           <p className="text-lg text-gray-400 pt-2 font-sans">
             Get the latest updates about happenings at Fundable
           </p>
@@ -85,7 +80,7 @@ export default function BlogPage() {
       </section>
 
       <section className="relative flex flex-col justify-center items-center gap-6 px-4 max-w-6xl mx-auto z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {blogItems.map((item) => (
             <article
               key={item.id}
@@ -121,7 +116,7 @@ export default function BlogPage() {
         >
           View All Posts
         </Link>
-        <div className="absolute -bottom-[20%] -right-[15%] hidden md:flex items-center justify-center -z-[5]">
+        <div className="absolute -right-0 -bottom-[20%] xl:-right-[15%] hidden md:flex items-center justify-center -z-[5]">
           <Image
             src="/glow-bg.svg"
             alt="orbit"
