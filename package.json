@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cartridge/connector": "^0.9.2",
+    "@cartridge/controller": "^0.9.2",
     "@fontsource/itim": "^5.1.1",
     "@next/font": "^14.2.15",
     "@radix-ui/react-dialog": "^1.1.6",
