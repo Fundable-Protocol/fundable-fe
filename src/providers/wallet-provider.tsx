@@ -22,7 +22,6 @@ const controllerConnector = new ControllerConnector({
 });
 
 const WalletProvider = ({ children }: { children: React.ReactNode }) => {
-  // All supported connectors
   const connectors = [
     argent(),
     braavos(),
