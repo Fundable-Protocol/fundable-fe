@@ -92,13 +92,13 @@ export default function PaymentStreamComponent() {
                 </label>
                 <div className="flex w-full items-center gap-6">
                   <input
-                    value="Month (30d)"
+                    defaultValue="Month (30d)"
                     type="text"
                     id="stream-duration"
                     className="flex-1 rounded-md bg-utility-input px-3 py-5 placeholder:text-base placeholder:font-medium placeholder:text-utility-placeholder"
                   />
                   <input
-                    value="1"
+                    defaultValue="1"
                     type="text"
                     id="stream-amount"
                     className="w-[61px] rounded-md bg-utility-input px-3 py-5 placeholder:text-base placeholder:font-medium placeholder:text-utility-placeholder"
